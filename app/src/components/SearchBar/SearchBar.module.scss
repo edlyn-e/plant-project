@@ -1,0 +1,13 @@
+.SearchBar {
+    &__input {
+        border-radius: 5px;
+        border: 1px solid black;
+        height: 25px;
+    }
+
+    &__submit {
+        border-radius: 5px;
+        border: 1px solid black;
+        padding: 6px;
+    }
+}
