@@ -21,4 +21,4 @@ In the cart page: - List of items in cart - Add/Remove items from cart - Edit qu
 
 ### Mindmap
 
-<img src = "plant-project\mindmap_01.png">
+<img src = "./mindmap_01.png">
