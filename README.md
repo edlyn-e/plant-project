@@ -44,3 +44,4 @@ In the cart page:
 ### Mindmap
 
 <img src = "./mindmap_01.png">
+<img src = "./mindmap_02.png">
