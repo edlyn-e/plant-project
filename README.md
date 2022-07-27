@@ -50,3 +50,4 @@ In the cart page:
 
 <img src = "./assets/mindmap_01.png">
 <img src = "./assets/mindmap_02.png">
+<img src="./assets/diagram.png">

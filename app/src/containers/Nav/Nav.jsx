@@ -14,26 +14,27 @@ const Nav = () => {
     return (
         <div className={styles.Nav}>
             <NavLink to="/home" className={styles.Nav__link}>
-                Home
+                HOME
             </NavLink>
             <NavLink to="/" className={styles.Nav__link}>
                 SHOP ALL
             </NavLink>
             <NavLink to="/" className={styles.Nav__link}>
-                PETITE
+                CATEGORY 1
             </NavLink>
             <NavLink to="/" className={styles.Nav__link}>
-                MID SIZE
+                CATEGORY 2
             </NavLink>
             <NavLink to="/" className={styles.Nav__link}>
-                PLUS
+                CATEGORY 3
             </NavLink>
             <NavLink to="/" className={styles.Nav__link}>
-                SHOES
+                CATEGORY 4
             </NavLink>
             <NavLink to="/" className={styles.Nav__link}>
-                ACCESSORIES
+                CATEGORY 5
             </NavLink>
+
             <SearchBar />
         </div>
     );
