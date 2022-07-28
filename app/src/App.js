@@ -5,7 +5,6 @@ import Home from "./containers/Home";
 import Nav from "./containers/Nav";
 import Footer from "./components/Footer/Footer";
 import { getProducts, seedProducts, updateProduct } from "./services/server";
-import Product from "./components/Product/Product";
 import ProductGrid from "./containers/ProductGrid/ProductGrid";
 
 const App = () => {
@@ -16,6 +15,8 @@ const App = () => {
         setProducts(data);
     };
 
+    console.log("in Apps", products);
+
     useEffect(() => {
         getData();
     }, []);
@@ -23,17 +24,19 @@ const App = () => {
     return (
         <div className={styles.App}>
             <BrowserRouter>
-                <div>
-                    <Nav />
-                    <Routes>
-                        <Route path="/home" element={<Home />} />
-                        <Route
-                            path="/all-products"
-                            element={<ProductGrid products={products} />}
-                        />
-                    </Routes>
-                </div>
+                <Nav />
+                <Routes>
+                    <Route path="/home" element={<Home />} />
+                    <Route
+                        path="/all"
+                        element={<ProductGrid products={products} />}
+                    />
+                    <Route path="/tops" element={<h1>Tops</h1>} />
+                    <Route path="/bottoms" element={<h1>Bottoms</h1>} />
+                    <Route path="/outerwear" element={<h1>Outerwear</h1>} />
+                </Routes>
 
+                {/* <button onClick={seedProducts}>SEED</button> */}
                 <Footer />
             </BrowserRouter>
         </div>

@@ -13,28 +13,23 @@ TO DO: for mobile screens
 const Nav = () => {
     return (
         <div className={styles.Nav}>
-            <h4 className={styles.Nav__logo}>LOGO will go here</h4>
-            <NavLink to="/home" className={styles.Nav__link}>
-                HOME
+            <NavLink to="/home">
+                <h1 className={styles.Nav__logo}>SHIBUI</h1>
             </NavLink>
-            <NavLink to="/" className={styles.Nav__link}>
-                SHOP ALL
-            </NavLink>
-            <NavLink to="/" className={styles.Nav__link}>
-                CATEGORY 1
-            </NavLink>
-            <NavLink to="/" className={styles.Nav__link}>
-                CATEGORY 2
-            </NavLink>
-            <NavLink to="/" className={styles.Nav__link}>
-                CATEGORY 3
-            </NavLink>
-            <NavLink to="/" className={styles.Nav__link}>
-                CATEGORY 4
-            </NavLink>
-            <NavLink to="/" className={styles.Nav__link}>
-                CATEGORY 5
-            </NavLink>
+            <div className={styles.Nav__cats}>
+                <NavLink to="/all" className={styles.Nav__link}>
+                    SHOP ALL
+                </NavLink>
+                <NavLink to="/tops" className={styles.Nav__link}>
+                    TOPS
+                </NavLink>
+                <NavLink to="/bottoms" className={styles.Nav__link}>
+                    BOTTOMS
+                </NavLink>
+                <NavLink to="/outerwear" className={styles.Nav__link}>
+                    OUTERWEAR
+                </NavLink>
+            </div>
 
             <SearchBar />
         </div>
