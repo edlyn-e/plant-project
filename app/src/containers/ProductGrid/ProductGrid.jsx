@@ -1,7 +1,7 @@
 import React from "react";
 import Product from "../../components/Product/Product";
 
-const ProductGrid = () => {
+const ProductGrid = ({ products }) => {
     return (
         <div>
             Product Grid: render products
