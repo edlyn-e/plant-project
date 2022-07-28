@@ -48,6 +48,8 @@ In the cart page:
 
 ### Mindmap
 
+Inspiration: Dangerfield, Cotton:On, Muji, H&M, Uniqlo
+
 <img src = "./assets/mindmap_01.png">
 <img src = "./assets/mindmap_02.png">
 <img src="./assets/diagram.png">

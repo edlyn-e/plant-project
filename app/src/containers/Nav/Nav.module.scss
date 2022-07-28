@@ -5,6 +5,11 @@
     align-items: center;
     justify-content: center;
 
+    &__logo {
+        margin: 10px;
+        margin-right: auto;
+    }
+
     &__link {
         border: 1px solid black;
         margin: 10px;

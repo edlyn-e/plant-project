@@ -13,6 +13,7 @@ TO DO: for mobile screens
 const Nav = () => {
     return (
         <div className={styles.Nav}>
+            <h4 className={styles.Nav__logo}>LOGO will go here</h4>
             <NavLink to="/home" className={styles.Nav__link}>
                 HOME
             </NavLink>
