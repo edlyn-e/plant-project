@@ -1,4 +1,4 @@
-## The Plant Project
+## Shibui: e-commerce website
 
 ### Outline
 
