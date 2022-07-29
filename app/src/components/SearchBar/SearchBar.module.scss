@@ -1,11 +1,35 @@
+@import "../../asset/palette.scss";
+
 .SearchBar {
-    border: 2px solid brown;
+    text-align: right;
+    margin: 10px;
 
     &__input {
-        font-family: "Karla";
+        font-family: $body-font;
+        padding-left: 5px;
+        width: 220px;
+        border: 1px solid grey;
     }
 
     &__submit {
-        font-family: "Karla";
+        font-family: $body-font;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .SearchBar {
+        text-align: right;
+        margin: 5px;
+
+        &__input {
+            font-family: $body-font;
+            padding-left: 5px;
+            width: 80vw;
+        }
+
+        &__submit {
+            font-family: $body-font;
+            width: 15vw;
+        }
     }
 }

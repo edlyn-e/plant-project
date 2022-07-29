@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Nav.module.scss";
 import { NavLink } from "react-router-dom";
-import SearchBar from "../../components/SearchBar";
 
 /*
 TO DO: for mobile screens 
@@ -13,13 +12,10 @@ TO DO: for mobile screens
 const Nav = () => {
     return (
         <div className={styles.Nav}>
-            <NavLink to="/home">
+            <NavLink to="/">
                 <h1 className={styles.Nav__logo}>SHIBUI</h1>
             </NavLink>
-            <div className={styles.Nav__cats}>
-                <NavLink to="/all" className={styles.Nav__link}>
-                    SHOP ALL
-                </NavLink>
+            <div className={styles.Nav__menu_items}>
                 <NavLink to="/tops" className={styles.Nav__link}>
                     TOPS
                 </NavLink>
@@ -30,8 +26,6 @@ const Nav = () => {
                     OUTERWEAR
                 </NavLink>
             </div>
-
-            <SearchBar />
         </div>
     );
 };

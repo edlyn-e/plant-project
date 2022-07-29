@@ -1,7 +1,18 @@
+@import "./asset/palette.scss";
+
 * {
-    font-family: "Anton", sans-serif;
+    font-family: $header-font;
+
+    p {
+        font-family: $body-font;
+    }
 }
 
 .App {
     text-align: center;
+
+    &__header {
+        padding: 20px;
+        box-shadow: 0.1px 0px 10px $lightborder;
+    }
 }

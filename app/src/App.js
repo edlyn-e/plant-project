@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./App.module.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./containers/Home";
+import SearchBar from "./components/SearchBar";
 import Nav from "./containers/Nav";
 import Footer from "./components/Footer/Footer";
 import { getProducts, seedProducts, updateProduct } from "./services/server";
 import ProductGrid from "./containers/ProductGrid/ProductGrid";
+import { Carousel } from "./containers/Carousel/Carousel";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -24,11 +25,18 @@ const App = () => {
     return (
         <div className={styles.App}>
             <BrowserRouter>
-                <Nav />
+                <div className={styles.App__header}>
+                    <Nav />
+                    <SearchBar />
+                </div>
+
+                <section>
+                    <Carousel />
+                </section>
+
                 <Routes>
-                    <Route path="/home" element={<Home />} />
                     <Route
-                        path="/all"
+                        path="/"
                         element={<ProductGrid products={products} />}
                     />
                     <Route path="/tops" element={<h1>Tops</h1>} />

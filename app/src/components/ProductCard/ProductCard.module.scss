@@ -1,0 +1,43 @@
+@import "../../asset/palette.scss";
+
+.ProductCard {
+    width: 250px;
+    margin: 5px;
+
+    &__image {
+        width: 250px;
+    }
+
+    &__name {
+        margin: 0;
+        font-family: $body-font;
+    }
+
+    &__price {
+        margin: 0px 0px 10px 0px;
+        font-family: $body-font;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .ProductCard {
+        margin: 5px;
+        width: 170px;
+
+        &__image {
+            width: 170px;
+        }
+
+        &__name {
+            margin: 0;
+            font-family: $body-font;
+            font-size: small;
+        }
+
+        &__price {
+            margin: 0px 0px 5px 0px;
+            font-family: $body-font;
+            font-size: small;
+        }
+    }
+}

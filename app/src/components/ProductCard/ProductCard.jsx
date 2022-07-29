@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./ProductCard.module.scss";
 
 const ProductCard = ({
     productName,
@@ -7,9 +8,14 @@ const ProductCard = ({
     productImages,
 }) => {
     return (
-        <div>
-            <h3>{productName}</h3>
-            <img src={productImages[0]} />
+        <div className={styles.ProductCard}>
+            <img
+                src={productImages[0]}
+                alt="item cover"
+                className={styles.ProductCard__image}
+            />
+            <p className={styles.ProductCard__name}>{productName}</p>
+            <p className={styles.ProductCard__price}>${productPrice}</p>
         </div>
     );
 };
