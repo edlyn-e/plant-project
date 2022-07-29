@@ -1,8 +1,7 @@
 import firestore from "../firebase";
 import { products } from "./products";
 
-// CRUD
-
+// CRUD PRODUCTS
 // CREATE
 export const createProduct = async (record) => {
     const collectionRef = firestore.collection("products");
