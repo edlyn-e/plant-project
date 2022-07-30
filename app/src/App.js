@@ -23,30 +23,32 @@ const App = () => {
     }, []);
 
     return (
-        <div className={styles.App}>
-            <BrowserRouter>
-                <div className={styles.App__header}>
-                    <Nav />
-                    <SearchBar />
-                </div>
+        <div>
+            <div className={styles.App}>
+                <BrowserRouter>
+                    <div className={styles.App__header}>
+                        <Nav />
+                        <SearchBar />
+                    </div>
 
-                <section>
-                    <Carousel />
-                </section>
+                    <section>
+                        <Carousel />
+                    </section>
 
-                <Routes>
-                    <Route
-                        path="/"
-                        element={<ProductGrid products={products} />}
-                    />
-                    <Route path="/tops" element={<h1>Tops</h1>} />
-                    <Route path="/bottoms" element={<h1>Bottoms</h1>} />
-                    <Route path="/outerwear" element={<h1>Outerwear</h1>} />
-                </Routes>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={<ProductGrid products={products} />}
+                        />
+                        <Route path="/tops" element={<h1>Tops</h1>} />
+                        <Route path="/bottoms" element={<h1>Bottoms</h1>} />
+                        <Route path="/outerwear" element={<h1>Outerwear</h1>} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
 
-                {/* <button onClick={seedProducts}>SEED</button> */}
-                <Footer />
-            </BrowserRouter>
+            {/* <button onClick={seedProducts}>SEED</button> */}
+            <Footer />
         </div>
     );
 };

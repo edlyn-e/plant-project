@@ -3,7 +3,6 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import styles from "./ProductGrid.module.scss";
 
 const ProductGrid = ({ products }) => {
-    console.log("in product grid, trying to access products", products);
     return (
         <div>
             <section className={styles.ProductGrid}>

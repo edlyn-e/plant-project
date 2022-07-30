@@ -1,5 +1,46 @@
+@import "../../asset/palette.scss";
+
 .Footer {
     border: 5px solid rgb(183, 151, 91);
     background-color: rgb(183, 151, 91);
     height: 25vh;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__section {
+        width: 300px;
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            font-family: $body-font;
+            font-size: small;
+        }
+
+        a {
+            text-decoration: none;
+            font-family: $body-font;
+        }
+
+        li:first-of-type {
+            font-weight: bold;
+        }
+    }
+
+    &__footnote {
+        width: 60vw;
+        text-align: center;
+        font-size: small;
+
+        justify-self: center;
+
+        a {
+            text-decoration: none;
+            font-family: $body-font;
+        }
+    }
 }

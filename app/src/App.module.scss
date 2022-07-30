@@ -11,6 +11,8 @@
 .App {
     text-align: center;
 
+    min-height: 73.2vh;
+
     &__header {
         padding: 20px;
         box-shadow: 0.1px 0px 10px $lightborder;
