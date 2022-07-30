@@ -24,21 +24,29 @@ const SearchBar = ({ productList }) => {
         setSearch(event.target.value);
     };
 
+    console.log("in searchbar", displayProducts);
+
     return (
-        <div className={styles.SearchBar}>
-            <input
-                className={styles.SearchBar__input}
-                type="text"
-                placeholder="What are you looking for?"
-                onChange={handleSearch}
-                value={search}
-            />
-            <input
-                type="submit"
-                value="Go"
-                className={styles.SearchBar__submit}
-            />
-        </div>
+        <>
+            <div className={styles.SearchBar}>
+                <input
+                    className={styles.SearchBar__input}
+                    type="text"
+                    placeholder="What are you looking for?"
+                    onChange={handleSearch}
+                    value={search}
+                />
+                <input
+                    type="submit"
+                    value="Go"
+                    className={styles.SearchBar__submit}
+                />
+            </div>
+
+            <div className={styles.SearchBar__product_grid}>
+                <ProductGrid products={displayProducts} />
+            </div>
+        </>
     );
 };
 

@@ -36,9 +36,13 @@ const App = () => {
                     <Routes>
                         <Route
                             path="/"
-                            element={<ProductGrid products={products} />}
+                            element={<h1>All products</h1>}
+                            // element={<ProductGrid products={products} />}
                         />
-                        <Route path="/login" element={<h1>LOG IN</h1>} />
+                        <Route
+                            path="/login"
+                            element={<h1>LOG IN/SIGN UP</h1>}
+                        />
                         <Route
                             path="/saved-items"
                             element={<h1>SAVED ITEMS</h1>}
@@ -49,6 +53,7 @@ const App = () => {
             </div>
             {/* "Seeding" the products from json file to firestore */}
             {/* <button onClick={seedProducts}>SEED</button> */}
+
             <Footer />
         </div>
     );

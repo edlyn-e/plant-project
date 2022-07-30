@@ -37,6 +37,9 @@ const Footer = () => {
                     <li>Are you a member?</li>
                     <li>Get a 20% off discount when you join, it's free!</li>
                 </ul>
+
+                <button>Join now!</button>
+                {/* TODO: redirect to Login page */}
             </section>
 
             <div>
