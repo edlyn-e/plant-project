@@ -16,14 +16,14 @@ const Nav = () => {
                 <h1 className={styles.Nav__logo}>SHIBUI</h1>
             </NavLink>
             <div className={styles.Nav__menu_items}>
-                <NavLink to="/tops" className={styles.Nav__link}>
-                    TOPS
+                <NavLink to="/login" className={styles.Nav__link}>
+                    LOG IN
                 </NavLink>
-                <NavLink to="/bottoms" className={styles.Nav__link}>
-                    BOTTOMS
+                <NavLink to="/saved-items" className={styles.Nav__link}>
+                    WISH LIST
                 </NavLink>
-                <NavLink to="/outerwear" className={styles.Nav__link}>
-                    OUTERWEAR
+                <NavLink to="/cart" className={styles.Nav__link}>
+                    CART
                 </NavLink>
             </div>
         </div>

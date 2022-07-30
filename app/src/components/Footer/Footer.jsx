@@ -31,18 +31,6 @@ const Footer = () => {
                 </ul>
             </section>
 
-            {/* Author's note */}
-            {/* <section className={styles.Footer__section}>
-                <ul>
-                    <li>Developer's note</li>
-                    <li>
-                        This e-commerce website was built by edlyn-e. Check out
-                        more on Github
-                        <a href="https://github.com/edlyn-e"> here</a>.
-                    </li>
-                </ul>
-            </section> */}
-
             {/* Other extra stuff */}
             <section className={styles.Footer__section}>
                 <ul>
