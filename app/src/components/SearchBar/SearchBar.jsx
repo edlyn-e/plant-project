@@ -43,7 +43,7 @@ const SearchBar = ({ productList }) => {
                 />
             </div>
 
-            <div className={styles.SearchBar__product_grid}>
+            <div className={styles.SearchBar__product_grid} hidden>
                 <ProductGrid products={displayProducts} />
             </div>
         </>

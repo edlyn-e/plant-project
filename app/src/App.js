@@ -36,8 +36,8 @@ const App = () => {
                     <Routes>
                         <Route
                             path="/"
-                            element={<h1>All products</h1>}
-                            // element={<ProductGrid products={products} />}
+                            // element={<h1>All products</h1>}
+                            element={<ProductGrid products={products} />}
                         />
                         <Route
                             path="/login"
