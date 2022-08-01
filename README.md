@@ -10,7 +10,7 @@ This goal of this project is to reinforce and further develop my skills and unde
 
 ### Criteria
 
-A minimum of two pages:
+A minimum of three pages:
 
 -   Home Page
     -   Product grid
@@ -32,9 +32,7 @@ All products should be stored in Firestore:
 All data should be stored in Firestore and fetched by frontend.
 There should be NO static product data
 
-#### Bonus/Extras
-
-Create a cart system using Firestore and React.
+The third page: Create a cart system using Firestore and React.
 
 -   Cart page in React application
     -   prevent users from adding items that are no longer in stock
