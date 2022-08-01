@@ -1,0 +1,12 @@
+.FeaturedItems {
+    display: block;
+
+    span,
+    button {
+        display: none;
+    }
+
+    &__Images {
+        width: 85vw;
+    }
+}

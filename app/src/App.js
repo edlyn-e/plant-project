@@ -5,8 +5,9 @@ import SearchBar from "./components/SearchBar";
 import Nav from "./containers/Nav";
 import Footer from "./components/Footer/Footer";
 import { getProducts, seedProducts, updateProduct } from "./services/server";
+import { carousel } from "./services/carousel";
 import ProductGrid from "./containers/ProductGrid/ProductGrid";
-import { Carousel } from "./containers/Carousel/Carousel";
+import FeaturedItems from "./containers/FeaturedItems/FeaturedItems";
 
 const App = () => {
     // Accessing products from "app\src\services\products.js"
@@ -30,7 +31,7 @@ const App = () => {
                     </div>
 
                     <section>
-                        <Carousel />
+                        <FeaturedItems imageList={carousel} />
                     </section>
 
                     <Routes>
