@@ -1,5 +1,6 @@
 .FeaturedItems {
-    display: block;
+    display: flex;
+    justify-content: center;
 
     span,
     button {

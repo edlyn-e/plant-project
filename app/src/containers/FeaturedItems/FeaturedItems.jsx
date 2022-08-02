@@ -1,11 +1,14 @@
-import Carousel from "react-bootstrap/Carousel";
+// styling
 import styles from "./FeaturedItems.module.scss";
 
-const FeaturedItems = ({ imageList }) => {
+// local files
+import { carousel } from "../../services/carousel";
+
+const FeaturedItems = () => {
     return (
         <div className={styles.FeaturedItems}>
-            <Carousel fade>
-                <Carousel.Item interval={1500}>
+            {/* <Carousel>
+                <Carousel.Item>
                     {imageList.map((image, id) => {
                         return (
                             <img
@@ -17,7 +20,9 @@ const FeaturedItems = ({ imageList }) => {
                         );
                     })}
                 </Carousel.Item>
-            </Carousel>
+            </Carousel> */}
+
+            <img src={carousel[3].src} alt={carousel[3].alt} />
         </div>
     );
 };

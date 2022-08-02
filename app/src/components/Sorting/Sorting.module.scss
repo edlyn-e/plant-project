@@ -1,0 +1,17 @@
+@import "./../../asset/palette.scss";
+
+* {
+    font-family: $body-font;
+}
+
+.Sorting {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+
+    select {
+        margin: 10px;
+        border: none;
+        padding: 5px;
+    }
+}

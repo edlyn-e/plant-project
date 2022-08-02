@@ -1,7 +1,8 @@
-import React from "react";
+// styling
+import styles from "./ProductPage.module.scss";
 
 const ProductPage = () => {
-    return <div>ProductPage</div>;
+    return <div className={styles.ProductPage}>ProductPage</div>;
 };
 
 export default ProductPage;
