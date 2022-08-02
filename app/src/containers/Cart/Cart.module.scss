@@ -1,0 +1,30 @@
+.Cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__basket {
+        background-color: rgb(231, 231, 231);
+        margin: 30px 10px;
+        width: 400px;
+        padding: 10px 20px;
+    }
+
+    section {
+        border-bottom: 1px solid rgb(100, 100, 100);
+    }
+
+    span {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    p {
+        color: rgb(100, 100, 100);
+    }
+
+    main {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

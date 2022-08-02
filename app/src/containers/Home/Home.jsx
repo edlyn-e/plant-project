@@ -10,7 +10,7 @@ const Home = () => {
         <div className={styles.Home}>
             <FeaturedItems />
             <section className={styles.Home__section}>
-                <h1>OUR CLOTHING</h1>
+                <h1 className={styles.Home__section_header}>OUR CLOTHING</h1>
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Quod consectetur, laboriosam neque consequatur tempore

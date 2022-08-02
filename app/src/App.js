@@ -9,6 +9,7 @@ import SearchBar from "./components/SearchBar";
 import Nav from "./containers/Nav";
 import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home/Home";
+import Cart from "./containers/Cart/Cart";
 
 const App = () => {
     return (
@@ -30,7 +31,7 @@ const App = () => {
                             path="/saved-items"
                             element={<h1>SAVED ITEMS</h1>}
                         />
-                        <Route path="/cart" element={<h1>CART</h1>} />
+                        <Route path="/cart" element={<Cart />} />
                     </Routes>
                 </BrowserRouter>
             </div>

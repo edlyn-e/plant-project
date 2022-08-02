@@ -22,7 +22,11 @@ const FeaturedItems = () => {
                 </Carousel.Item>
             </Carousel> */}
 
-            <img src={carousel[3].src} alt={carousel[3].alt} />
+            <img
+                src={carousel[3].src}
+                alt={carousel[3].alt}
+                className={styles.FeaturedItems__Images}
+            />
         </div>
     );
 };
