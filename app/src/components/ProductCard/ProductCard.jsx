@@ -1,7 +1,5 @@
-import React from "react";
-import ProductPage from "../../containers/ProductPage/ProductPage";
+// styling
 import styles from "./ProductCard.module.scss";
-import { Link } from "react-router-dom";
 
 const ProductCard = ({
     productName,

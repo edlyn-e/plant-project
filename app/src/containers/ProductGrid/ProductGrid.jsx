@@ -1,17 +1,34 @@
-import React from "react";
-import ProductCard from "../../components/ProductCard/ProductCard";
+// styling
 import styles from "./ProductGrid.module.scss";
 
-const ProductGrid = ({ products }) => {
-    console.log("in products", products);
+// library imports
+import { useEffect, useState } from "react";
 
-    /*
-    I want to render the products list from search bar here.
-    How to await something that has already been fetched?
-    */
+// local pages
+import ProductCard from "../../components/ProductCard/ProductCard";
+import Sorting from "../../components/Sorting/Sorting";
+import {
+    getProducts,
+    seedProducts,
+    updateProduct,
+} from "./../../services/server";
+
+const ProductGrid = () => {
+    // Accessing products from "app\src\services\products.js"
+    const [products, setProducts] = useState([]);
+    const getData = async () => {
+        const data = await getProducts();
+        setProducts(data);
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
 
     return (
         <div>
+            <section className={styles.ProductGrid__options}></section>
+            <Sorting />
             <section className={styles.ProductGrid}>
                 {products.length > 0 &&
                     products.map((item) => {
@@ -33,6 +50,8 @@ const ProductGrid = ({ products }) => {
                     </p>
                 )}
             </section>
+            {/* "Seeding" the products from json file to firestore */}
+            {/* <button onClick={seedProducts}>SEED</button> */}
         </div>
     );
 };

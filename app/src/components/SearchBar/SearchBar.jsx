@@ -1,30 +1,15 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import ProductGrid from "../../containers/ProductGrid/ProductGrid";
+// styling
 import styles from "./SearchBar.module.scss";
 
-const SearchBar = ({ productList }) => {
+// library imports
+import { useState } from "react";
+
+const SearchBar = () => {
     const [search, setSearch] = useState("");
-    const [displayProducts, setDisplayProducts] = useState([]);
-
-    useEffect(() => {
-        setDisplayProducts(productList);
-    }, [productList]);
-
-    useEffect(() => {
-        const updatedDisplayProducts = productList.filter((product) => {
-            return product.name.toLowerCase().includes(search.toLowerCase());
-        });
-
-        setDisplayProducts(updatedDisplayProducts);
-    }, [search]);
 
     const handleSearch = (event) => {
         setSearch(event.target.value);
     };
-
-    console.log("in searchbar", displayProducts);
 
     return (
         <>
@@ -41,10 +26,6 @@ const SearchBar = ({ productList }) => {
                     value="Go"
                     className={styles.SearchBar__submit}
                 />
-            </div>
-
-            <div className={styles.SearchBar__product_grid} hidden>
-                <ProductGrid products={displayProducts} />
             </div>
         </>
     );

@@ -1,0 +1,15 @@
+.FeaturedItems {
+    display: flex;
+    justify-content: center;
+
+    span,
+    button {
+        display: none;
+    }
+
+    &__Images {
+        width: 85vw;
+        height: 70vh;
+        object-fit: cover;
+    }
+}
