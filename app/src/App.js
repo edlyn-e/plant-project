@@ -3,6 +3,7 @@ import styles from "./App.module.scss";
 
 // library imports
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // local pages
 import SearchBar from "./components/SearchBar";
