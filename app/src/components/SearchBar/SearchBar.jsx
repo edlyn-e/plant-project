@@ -3,6 +3,7 @@ import styles from "./SearchBar.module.scss";
 
 // library imports
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 const SearchBar = () => {
     const [search, setSearch] = useState("");
@@ -21,11 +22,9 @@ const SearchBar = () => {
                     onChange={handleSearch}
                     value={search}
                 />
-                <input
-                    type="submit"
-                    value="Go"
-                    className={styles.SearchBar__submit}
-                />
+                <button className={styles.SearchBar__submit}>
+                    <FaSearch />
+                </button>
             </div>
         </>
     );
