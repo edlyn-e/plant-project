@@ -11,6 +11,7 @@ import Nav from "./containers/Nav";
 import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home/Home";
 import Cart from "./containers/Cart/Cart";
+import ProductPage from "./containers/ProductPage/ProductPage";
 
 const App = () => {
     return (
@@ -23,7 +24,7 @@ const App = () => {
                     </div>
 
                     <Routes>
-                        <Route path="/home" element={<Home />} />
+                        <Route path="/" element={<Home />} />
                         <Route
                             path="/login"
                             element={<h1>LOG IN/SIGN UP</h1>}
@@ -33,6 +34,7 @@ const App = () => {
                             element={<h1>SAVED ITEMS</h1>}
                         />
                         <Route path="/cart" element={<Cart />} />
+                        <Route path={`product/:id`} element={<ProductPage />} />
                     </Routes>
                 </BrowserRouter>
             </div>

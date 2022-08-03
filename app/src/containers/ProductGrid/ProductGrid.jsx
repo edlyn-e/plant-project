@@ -3,15 +3,12 @@ import styles from "./ProductGrid.module.scss";
 
 // library imports
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // local pages
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Sorting from "../../components/Sorting/Sorting";
-import {
-    getProducts,
-    seedProducts,
-    updateProduct,
-} from "./../../services/server";
+import { getProducts } from "./../../services/server";
 
 const ProductGrid = () => {
     // Accessing products from "app\src\services\products.js"
@@ -35,12 +32,14 @@ const ProductGrid = () => {
                         const { id, name, price, images } = item;
 
                         return (
-                            <ProductCard
-                                key={id}
-                                productName={name}
-                                productPrice={price}
-                                productImages={images}
-                            />
+                            <Link to={`product/${id}`}>
+                                <ProductCard
+                                    key={id}
+                                    productName={name}
+                                    productPrice={price}
+                                    productImages={images}
+                                />
+                            </Link>
                         );
                     })}
                 {products.length === 0 && (
@@ -50,6 +49,7 @@ const ProductGrid = () => {
                     </p>
                 )}
             </section>
+
             {/* "Seeding" the products from json file to firestore */}
             {/* <button onClick={seedProducts}>SEED</button> */}
         </div>

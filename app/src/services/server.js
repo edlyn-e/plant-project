@@ -45,3 +45,6 @@ export const updateProduct = async (id, record) => {
     const docRef = collectionRef.doc(id);
     await docRef.update(record);
 };
+
+// GETTING SPECIFIC ITEM BY ID
+export const getProductByID = async (id) => {};

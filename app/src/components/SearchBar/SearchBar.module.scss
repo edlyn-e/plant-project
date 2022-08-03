@@ -16,7 +16,7 @@
 
     &__submit {
         font-family: $body-font;
-        padding: 5px;
+        padding: 5px 10px;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
         border: 1px solid black;
@@ -34,8 +34,8 @@
 @media only screen and (max-width: 600px) {
     .SearchBar {
         text-align: right;
-        margin-top: 20px;
         display: flex;
+        margin-top: 40px;
         justify-self: center;
 
         &__input {

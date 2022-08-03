@@ -3,6 +3,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: small;
+    }
 }
 
 @media only screen and (max-width: 600px) {
