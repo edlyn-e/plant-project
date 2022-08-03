@@ -47,4 +47,12 @@ export const updateProduct = async (id, record) => {
 };
 
 // GETTING SPECIFIC ITEM BY ID
-export const getProductByID = async (id) => {};
+export const getProductByID = async (id) => {
+    const collectionRef = firestore.collection("products");
+
+    const querySnap = await collectionRef.doc(id).get();
+
+    const data = querySnap.data();
+
+    return data;
+};

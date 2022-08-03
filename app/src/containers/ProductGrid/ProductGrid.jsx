@@ -32,9 +32,8 @@ const ProductGrid = () => {
                         const { id, name, price, images } = item;
 
                         return (
-                            <Link to={`product/${id}`}>
+                            <Link to={`product/${id}`} key={id}>
                                 <ProductCard
-                                    key={id}
                                     productName={name}
                                     productPrice={price}
                                     productImages={images}
