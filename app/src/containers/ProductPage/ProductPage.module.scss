@@ -6,11 +6,9 @@
     justify-content: center;
 
     &__gallery {
-        width: fit-content;
         margin-bottom: 20px;
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
+        max-width: 500px;
     }
 
     &__gallery_image {
@@ -71,8 +69,7 @@
         flex-wrap: wrap;
         justify-content: space-between;
         button {
-            margin-right: 20px;
-            padding: 10px 20px;
+            padding: 10px 35px;
             border: none;
         }
 
@@ -88,6 +85,9 @@
 
 @media only screen and (max-width: 600px) {
     .ProductPage {
+        &__gallery {
+            max-width: 320px;
+        }
         &__gallery_image {
             width: 320px;
         }

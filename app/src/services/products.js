@@ -1,11 +1,32 @@
-// 5 tops, 5 outerwear, 5 pants
+/*
+
+TEMPLATE: 
+ {
+        name: "",
+        price: ,
+        size: [
+            "xx-smalll",
+            "x-small",
+            "small",
+            "medium",
+            "large",
+            "xx-large",
+            "xxx-large",
+        ],
+        description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ad illum beatae iste minus vel voluptas voluptatem quidem pariatur nisi adipisci minima, eum accusamus alias odit sapiente, non nobis iusto.",
+        stock: 10,
+        images: [],
+        wishlist: false,
+    },
+
+*/
 
 export const products = [
     {
         // TOPS
         name: "Ribbed Tank",
         price: 12.99,
-        type: "tops",
         size: [
             "xx-smalll",
             "x-small",
@@ -30,7 +51,6 @@ export const products = [
     {
         name: "Seamless Top",
         price: 27.99,
-        type: "tops",
         size: [
             "xx-smalll",
             "x-small",
@@ -54,7 +74,6 @@ export const products = [
     {
         name: "Silk Blend Tee",
         price: 49.99,
-        type: "tops",
         size: [
             "xx-smalll",
             "x-small",
@@ -79,7 +98,6 @@ export const products = [
     {
         name: "Long Sleeve Top",
         price: 39.99,
-        type: "tops",
         size: [
             "xx-smalll",
             "x-small",
@@ -105,7 +123,6 @@ export const products = [
     {
         name: "Oversize Print Tee",
         price: 27.99,
-        type: "",
         size: [
             "xx-smalll",
             "x-small",
@@ -127,11 +144,95 @@ export const products = [
         ],
         wishlist: false,
     },
+    {
+        name: "Denim Boiler Suit",
+        price: 69.99,
+        size: ["x-small", "small", "medium", "large", "xx-large"],
+        description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ad illum beatae iste minus vel voluptas voluptatem quidem pariatur nisi adipisci minima, eum accusamus alias odit sapiente, non nobis iusto.",
+        stock: 20,
+        images: [
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Fcc%2Ff6%2Fccf65a2d89a5feb4f64ea64206ff5aeb1afcb10b.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F78%2F15%2F781530e00f7b55c9daa2198f6b930ed2e75d0c21.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Ff4%2Fe4%2Ff4e467cfd79bec9ecf125c9264c3d0d16e0cd6eb.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Fc7%2Fbf%2Fc7bf25beac23bdbcf967ecfa0a6e4f04c33f8a4d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Ff7%2Ff9%2Ff7f95c3d4fa02e64f2f4bd73a41c9546467ada2b.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F1d%2F66%2F1d661ee59070ee5534b9b06233b9345cc1d4daec.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Fd6%2F2c%2Fd62ca2f00616a935df15523025e13f10866fbc03.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+        ],
+        wishlist: false,
+    },
+    {
+        name: "Twill Jumpsuit",
+        price: 119,
+        size: ["x-small", "small", "medium", "large", "xx-large"],
+        description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ad illum beatae iste minus vel voluptas voluptatem quidem pariatur nisi adipisci minima, eum accusamus alias odit sapiente, non nobis iusto.",
+        stock: 10,
+        images: [
+            "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F78%2F76%2F7876bfe44322e220fd442b3d49edb535b8f1fc4f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Fdc%2Fca%2Fdccad42b618d7486b6413575d51218119ecd13dc.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F09%2F9c%2F099c56879e57a056d0c4210f288bfbef034a260c.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F09%2F89%2F09898230ef5ec665e6336a25d7b164bb55c29b21.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F1e%2Ffe%2F1efee1fa7fdfa47e3e720aa8c77d7c653e1665bb.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F7e%2F22%2F7e22a3c41b6743f6437cd2b31360bb1391cfff2b.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Fe9%2F89%2Fe989e335619f172cbd69eed7b8297783fe91a975.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+        ],
+        wishlist: false,
+    },
+    {
+        name: "Tie Belt Jumpsuit",
+        price: 59.99,
+        size: [
+            "xx-smalll",
+            "x-small",
+            "small",
+            "medium",
+            "large",
+            "xx-large",
+            "xxx-large",
+        ],
+        description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ad illum beatae iste minus vel voluptas voluptatem quidem pariatur nisi adipisci minima, eum accusamus alias odit sapiente, non nobis iusto.",
+        stock: 10,
+        images: [
+            "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F20%2F31%2F203126a21ab7dcf4f55a8e3a4741d74db705fc6f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F42%2F9e%2F429e315238252f2c7264d580f34c747d7617adc3.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+        ],
+        wishlist: false,
+    },
+
+    {
+        name: "Puff Sleeve Dress",
+        price: 49.99,
+        size: [
+            "xx-smalll",
+            "x-small",
+            "small",
+            "medium",
+            "large",
+            "xx-large",
+            "xxx-large",
+        ],
+        description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ad illum beatae iste minus vel voluptas voluptatem quidem pariatur nisi adipisci minima, eum accusamus alias odit sapiente, non nobis iusto.",
+        stock: 10,
+        images: [
+            "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F30%2F2d%2F302de2f9fde9894f46a5785ea5bea45194a7de65.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F84%2F9f%2F849f7c2f8a2626b7a6a4d2933b9fd91aaf81f687.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F69%2F10%2F6910997b50cf87d06ae2e43dca4f9e4dcd1257dd.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F40%2F27%2F40278bee534952e79224f577898add7f49133006.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Fa9%2F42%2Fa942e027134a1923aa631cd19ba681a7447cb6f8.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D-",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F4e%2Fe8%2F4ee8d61a37e11db6bf2e7317d21ea71876fae8ab.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F37%2F9f%2F379fd51d37cd2fd702977e854906b5f97affdd93.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+        ],
+        wishlist: false,
+    },
+
     // BOTTOMS
     {
         name: "Fast Drying Sports Pants",
         price: 49.99,
-        type: "bottoms",
         size: [
             "xx-smalll",
             "x-small",
@@ -156,7 +257,6 @@ export const products = [
     {
         name: "Wide Twill Pants",
         price: 27.99,
-        type: "bottoms",
         size: [
             "xx-smalll",
             "x-small",
@@ -181,7 +281,6 @@ export const products = [
     {
         name: "Ankle Length Pants",
         price: 39.99,
-        type: "bottoms",
         size: [
             "xx-smalll",
             "x-small",
@@ -203,7 +302,6 @@ export const products = [
     {
         name: "Tailored Pants",
         price: 34.99,
-        type: "",
         size: [
             "xx-smalll",
             "x-small",
@@ -227,7 +325,6 @@ export const products = [
     {
         name: "Silk Blend Pants",
         price: 129,
-        type: "",
         size: [
             "xx-smalll",
             "x-small",
@@ -246,11 +343,65 @@ export const products = [
         ],
         wishlist: false,
     },
+
+    {
+        name: "True to You Skinny High Jeans",
+        price: 89.99,
+        size: [
+            "xx-smalll",
+            "x-small",
+            "small",
+            "medium",
+            "large",
+            "xx-large",
+            "xxx-large",
+        ],
+        description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ad illum beatae iste minus vel voluptas voluptatem quidem pariatur nisi adipisci minima, eum accusamus alias odit sapiente, non nobis iusto.",
+        stock: 40,
+        images: [
+            "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F24%2F33%2F243381aa1c2d874e1a83a895a6b5b96a12ec87fe.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Fb6%2Fe2%2Fb6e2fad902927f0581c5748bd1f0238b50e67e88.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F36%2F49%2F3649441fa0d2e08ee18f7aebe73a1740c855023c.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F37%2Faf%2F37af5bd261bb7c3b8ba410792e8babfcb308c10d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F86%2Fb8%2F86b87672757401ed676e56b2f8009943e784f985.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F01%2F44%2F0144e65a2c4cd8746d37457b33b0bbe52d505b98.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Fb9%2F54%2Fb9549d70dc4c73676726abf5a1dc3b043c6b6e0d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+        ],
+        wishlist: false,
+    },
+
+    {
+        name: "Beige Pants",
+        price: 39.99,
+        size: [
+            "xx-smalll",
+            "x-small",
+            "small",
+            "medium",
+            "large",
+            "xx-large",
+            "xxx-large",
+        ],
+        description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ad illum beatae iste minus vel voluptas voluptatem quidem pariatur nisi adipisci minima, eum accusamus alias odit sapiente, non nobis iusto.",
+        stock: 10,
+        images: [
+            "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F1d%2F54%2F1d54a1d9197ddd41360805475e7b748be5239a16.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Fca%2F0c%2Fca0cebce2a89d19a5a2e07f7f5d3259353257f37.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F2f%2Fc7%2F2fc70df2df277626e2c8b429973d2ebf6b8d1502.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Ff9%2F80%2Ff98055944d539e4b48caa82822c714b4b6144b04.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2Fbc%2F0d%2Fbc0dea1413415d445551f8d45da873014b3a4158.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F4b%2F70%2F4b70f2e5f7e8beb0c404816aa57f9fa1882cbe04.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+            "https://lp2.hm.com/hmgoepprod?set=format%5Bwebp%5D%2Cquality%5B79%5D%2Csource%5B%2F26%2F32%2F263275e7dd3c1190d8cf6f4d09f8e507d1bf2f23.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fproduct%2Fmain%5D",
+        ],
+        wishlist: false,
+    },
+
     // OUTERWEAR
     {
         name: "Oversize Denim Jacket",
         price: 69.99,
-        type: "outerwear",
         size: [
             "xx-smalll",
             "x-small",
@@ -272,7 +423,6 @@ export const products = [
     {
         name: "Oversize Shirt Jacket",
         price: 89.99,
-        type: "outerwear",
         size: [
             "xx-smalll",
             "x-small",
@@ -297,7 +447,6 @@ export const products = [
     {
         name: "Boxy Leather Jacket",
         price: 449,
-        type: "outerwear",
         size: [
             "xx-smalll",
             "x-small",
@@ -322,7 +471,6 @@ export const products = [
     {
         name: "Gathered Sleeve Jacket",
         price: 69.99,
-        type: "outerwear",
         size: [
             "xx-smalll",
             "x-small",
@@ -347,7 +495,6 @@ export const products = [
     {
         name: "Tie Belt Jacket",
         price: 69.99,
-        type: "",
         size: [
             "xx-smalll",
             "x-small",

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 // local pages
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Sorting from "../../components/Sorting/Sorting";
-import { getProducts } from "./../../services/server";
+import { getProducts, seedProducts } from "./../../services/server";
 
 const ProductGrid = () => {
     const [products, setProducts] = useState([]);
@@ -54,7 +54,9 @@ const ProductGrid = () => {
             </section>
 
             {/* "Seeding" the products from json file to firestore */}
-            {/* <button onClick={seedProducts}>SEED</button> */}
+            {/* <button onClick={seedProducts} className={styles.ProductGrid__seed}>
+                SEED
+            </button> */}
         </div>
     );
 };
