@@ -6,17 +6,14 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
 // local
-import { getProducts } from "../../services/server";
+import { getProductByID } from "../../services/server";
 
 const ProductPage = () => {
     const { id } = useParams();
     const [item, setItem] = useState([]);
 
-    const getItem = async (id) => {
-        const info = await getProducts();
-
-        console.log("info", info);
-
+    const getItem = async () => {
+        const info = await getProductByID(id);
         setItem(info);
     };
 
@@ -29,7 +26,6 @@ const ProductPage = () => {
 
     return (
         <div className={styles.ProductPage}>
-            <h1>Item Name</h1>
             <h1>{item.name}</h1>
         </div>
     );
