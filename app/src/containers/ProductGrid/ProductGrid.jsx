@@ -8,11 +8,12 @@ import { Link } from "react-router-dom";
 // local pages
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Sorting from "../../components/Sorting/Sorting";
-import { getProducts } from "./../../services/server";
+import { getProducts, seedProducts } from "./../../services/server";
 
 const ProductGrid = () => {
-    // Accessing products from "app\src\services\products.js"
     const [products, setProducts] = useState([]);
+
+    // Accessing products from "app\src\services\products.js"
     const getData = async () => {
         const data = await getProducts();
         setProducts(data);
@@ -24,8 +25,10 @@ const ProductGrid = () => {
 
     return (
         <div>
+            {/* TODO: set a loading state so that the user doesn't see the error message right away whilst waiting for the products to load */}
             <section className={styles.ProductGrid__options}></section>
             <Sorting />
+
             <section className={styles.ProductGrid}>
                 {products.length > 0 &&
                     products.map((item) => {
@@ -41,6 +44,7 @@ const ProductGrid = () => {
                             </Link>
                         );
                     })}
+
                 {products.length === 0 && (
                     <p>
                         Sorry! Looks like we don't stock that item. If you'd
@@ -50,7 +54,9 @@ const ProductGrid = () => {
             </section>
 
             {/* "Seeding" the products from json file to firestore */}
-            {/* <button onClick={seedProducts}>SEED</button> */}
+            {/* <button onClick={seedProducts} className={styles.ProductGrid__seed}>
+                SEED
+            </button> */}
         </div>
     );
 };
