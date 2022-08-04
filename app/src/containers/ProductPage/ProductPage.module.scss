@@ -1,0 +1,110 @@
+@import "./../../asset/palette.scss";
+
+.ProductPage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__gallery {
+        width: fit-content;
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__gallery_image {
+        width: 500px;
+    }
+
+    &__item_description {
+        margin: 20px;
+    }
+
+    &__item {
+        width: 550px;
+    }
+    &__item_name {
+        font-family: $body-font;
+        font-weight: bolder;
+        font-size: x-large;
+    }
+    &__item_price {
+        font-weight: bold;
+    }
+
+    &__item_btn {
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    &__item_btn:hover {
+        background: rgb(207, 207, 207);
+        color: grey;
+    }
+
+    &__size_guide {
+        text-align: right;
+    }
+
+    &__item_incDec {
+        margin: 20px 0px;
+
+        button {
+            width: 60px;
+            height: 30px;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #fff;
+        }
+
+        input {
+            width: 100px;
+        }
+    }
+
+    &__item_shop {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        button {
+            margin-right: 20px;
+            padding: 10px 20px;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #fff;
+        }
+    }
+
+    &__item_info {
+        margin: 20px 0px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .ProductPage {
+        &__gallery_image {
+            width: 320px;
+        }
+
+        &__item_description {
+            font-size: smaller;
+        }
+
+        &__item_shop {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px 0px;
+
+            button {
+                width: 90vw;
+                margin: 5px 0px;
+            }
+        }
+    }
+}

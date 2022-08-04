@@ -13,7 +13,7 @@ const FeaturedItems = () => {
             <Carousel>
                 {carousel.map((image, id) => {
                     return (
-                        <Carousel.Item key={id} interval={5000}>
+                        <Carousel.Item key={id} interval={8000}>
                             <img
                                 src={image.src}
                                 className={styles.FeaturedItems__Images}
@@ -22,21 +22,7 @@ const FeaturedItems = () => {
                         </Carousel.Item>
                     );
                 })}
-
-                {/* <Carousel.Item>
-                    <img
-                        src={carousel[3].src}
-                        alt={carousel[3].alt}
-                        className={styles.FeaturedItems__Images}
-                    />
-                </Carousel.Item> */}
             </Carousel>
-            {/* 
-            <img
-                src={carousel[3].src}
-                alt={carousel[3].alt}
-                className={styles.FeaturedItems__Images}
-            /> */}
         </div>
     );
 };
