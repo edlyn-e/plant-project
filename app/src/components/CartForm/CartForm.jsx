@@ -6,21 +6,21 @@ const CartForm = () => {
         <div className={styles.CartForm}>
             <form>
                 <h2>Billing details</h2>
-                <label for="name">Full name: </label>
+                <label htmlFor="name">Full name: </label>
                 <input
                     type="text"
                     name="name"
                     placeholder="enter your full name"
                     required
                 />
-                <label for="email">Email: </label>
+                <label htmlFor="email">Email: </label>
                 <input
                     type="text"
                     name="email"
                     placeholder="enter your email address"
                     required
                 />
-                <label for="address">Address: </label>
+                <label htmlFor="address">Address: </label>
                 <input
                     type="text"
                     name="address"
@@ -29,31 +29,31 @@ const CartForm = () => {
                 />
 
                 <h2>Payment method</h2>
-                <label for="cardNo">Card number: </label>
+                <label htmlFor="cardNo">Card number: </label>
                 <input
                     type="number"
                     name="cardNo"
                     placeholder="0000 0000 0000 0000"
                     required
                 />
-                <label for="expiry">Expiry: </label>
+                <label htmlFor="expiry">Expiry: </label>
                 <input
                     type="number"
                     name="expiry"
                     placeholder="MM/YYYY"
                     required
                 />
-                <label for="securiyCode">Security code: </label>
+                <label htmlFor="securityCode">Security code: </label>
                 <input
                     type="number"
-                    name="securiyCode"
+                    name="securityCode"
                     placeholder="XXX"
                     required
                 />
             </form>
 
             <p>
-                By clicking the button, you agree to the{" "}
+                By clicking the button, you agree to the
                 <a href="https://www.termsandconditionsgenerator.com/">
                     Terms and Conditions
                 </a>

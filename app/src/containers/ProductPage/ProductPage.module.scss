@@ -31,51 +31,8 @@
         font-weight: bold;
     }
 
-    &__item_btn {
-        border: none;
-        border-radius: 5px;
-        margin: 5px;
-    }
-
-    &__item_btn:hover {
-        background: rgb(207, 207, 207);
-        color: grey;
-    }
-
     &__size_guide {
         text-align: right;
-    }
-
-    &__item_incDec {
-        margin: 20px 0px;
-
-        button {
-            width: 60px;
-            height: 30px;
-            border: none;
-        }
-
-        button:hover {
-            background-color: #fff;
-        }
-
-        input {
-            width: 100px;
-        }
-    }
-
-    &__item_shop {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        button {
-            padding: 10px 35px;
-            border: none;
-        }
-
-        button:hover {
-            background-color: #fff;
-        }
     }
 
     &__item_info {

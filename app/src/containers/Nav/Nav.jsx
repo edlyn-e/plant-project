@@ -3,6 +3,8 @@ import styles from "./Nav.module.scss";
 
 // library imports
 import { NavLink } from "react-router-dom";
+import { FaHome, FaHeart, FaShoppingCart } from "react-icons/fa";
+import { BsFillPersonFill } from "react-icons/bs";
 
 /*
 TO DO: for mobile screens 
@@ -19,16 +21,16 @@ const Nav = () => {
             </NavLink>
             <div className={styles.Nav__menu_items}>
                 <NavLink to="/" className={styles.Nav__link}>
-                    HOME
+                    <FaHome />
                 </NavLink>
                 <NavLink to="/login" className={styles.Nav__link}>
-                    LOG IN
+                    <BsFillPersonFill />
                 </NavLink>
                 <NavLink to="/saved-items" className={styles.Nav__link}>
-                    WISH LIST
+                    <FaHeart />
                 </NavLink>
                 <NavLink to="/cart" className={styles.Nav__link}>
-                    CART
+                    <FaShoppingCart />
                 </NavLink>
             </div>
         </div>

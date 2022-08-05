@@ -8,6 +8,8 @@ This goal of this project is to reinforce and further develop my skills and unde
 -   React-router-dom
 -   Firebase/Firestore
 
+---
+
 ### Criteria
 
 Three Pages:
@@ -40,6 +42,8 @@ Notes:
 
 -   All data should be stored in Firestore and fetched by frontend.
 -   There should be NO static product data
+
+---
 
 ### Mindmap
 

@@ -5,25 +5,20 @@ import styles from "./ProductPage.module.scss";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Carousel from "react-bootstrap/Carousel";
+import { FaRegStar } from "react-icons/fa";
 
 // local
 import { getProductByID } from "../../services/server";
+import ProductInput from "../../components/ProductInput/ProductInput";
 
 const ProductPage = () => {
     const { id } = useParams();
     const [item, setItem] = useState([]);
-    const [size, setSize] = useState([]);
     const [images, setImages] = useState([]);
 
     const getItem = async () => {
         const info = await getProductByID(id);
         setItem(info);
-    };
-
-    const getSizeButton = async () => {
-        const info = await getProductByID(id);
-        const sizes = info.size;
-        setSize(sizes);
     };
 
     const getImages = async () => {
@@ -32,22 +27,18 @@ const ProductPage = () => {
         setImages(images);
     };
 
-    console.log(images);
-
     useEffect(() => {
         getItem();
-        getSizeButton();
         getImages();
     }, []);
 
     return (
         <div className={styles.ProductPage}>
-            {/* gallery */}
             <div className={styles.ProductPage__gallery}>
                 <Carousel>
-                    {images.map((img) => {
+                    {images.map((img, index) => {
                         return (
-                            <Carousel.Item interval={90000}>
+                            <Carousel.Item interval={90000} key={index}>
                                 <img
                                     src={img}
                                     alt="alt text"
@@ -70,36 +61,16 @@ const ProductPage = () => {
                         <h3 className={styles.ProductPage__item_price}>
                             ${item.price}
                         </h3>
-                        <p>some reviews can go here...</p>
+                        <p>
+                            <FaRegStar /> <FaRegStar /> <FaRegStar />
+                            <FaRegStar /> <FaRegStar /> <br />
+                            (No reviews yet)
+                        </p>
                     </header>
 
                     {/* select size section */}
                     <section>
-                        <p>Select size:</p>
-                        {size.map((btn, index) => {
-                            return (
-                                <button
-                                    key={index}
-                                    className={styles.ProductPage__item_btn}
-                                >
-                                    {btn}
-                                </button>
-                            );
-                        })}
-                        <div className={styles.ProductPage__size_guide}>
-                            Size Guide
-                        </div>
-                    </section>
-
-                    <section className={styles.ProductPage__item_incDec}>
-                        <button> - </button> <input type="text" />
-                        <button> + </button>
-                    </section>
-
-                    <section section className={styles.ProductPage__item_shop}>
-                        <button>Add to cart</button>
-                        <button>Add to wishlist</button>
-                        <button>Find in store</button>
+                        <ProductInput product={item} id={id} />
                     </section>
 
                     <section section className={styles.ProductPage__item_info}>
