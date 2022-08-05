@@ -13,7 +13,7 @@
     }
 
     &__link {
-        margin: 15px;
+        margin: 28px;
         font-size: x-large;
         text-decoration: none;
         color: black;
@@ -27,5 +27,13 @@
     &__logo {
         margin: 10px;
         font-family: $header-font;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .Nav {
+        &__link {
+            margin: 10px;
+        }
     }
 }

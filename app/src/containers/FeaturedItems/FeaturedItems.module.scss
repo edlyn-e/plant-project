@@ -9,7 +9,17 @@
 
     &__Images {
         width: 85vw;
-        height: 850px;
+        height: 570px;
         object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .FeaturedItems {
+        &__Images {
+            width: 85vw;
+            height: 250px;
+            object-fit: cover;
+        }
     }
 }
