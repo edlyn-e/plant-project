@@ -14,6 +14,7 @@
 
     &__link {
         margin: 15px;
+        font-size: x-large;
         text-decoration: none;
         color: black;
         font-family: $body-font;
@@ -28,10 +29,3 @@
         font-family: $header-font;
     }
 }
-
-// @media only screen and (max-width: 600px) {
-//     .Nav {
-//         display: flex;
-//         margin: 0px;
-//     }
-// }
