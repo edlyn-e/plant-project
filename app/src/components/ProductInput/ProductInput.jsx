@@ -12,11 +12,13 @@ import { CartContext } from "../../context/CartContext";
 
 const ProductInput = ({ product }) => {
     const { id } = useParams();
+    const { cart, setCart } = useContext(CartContext);
+
     const [sizeButton, setSizeButton] = useState([]);
     const [size, setSize] = useState("select");
     const [stock, setStock] = useState([]);
     const [qty, setQty] = useState(0);
-    const { cart, setCart } = useContext(CartContext);
+    const [wishlist, setWishlist] = useState(false);
 
     const getSizeButton = async () => {
         const info = await getProductByID(id);
@@ -34,8 +36,6 @@ const ProductInput = ({ product }) => {
     const handleClick = (e) => {
         e.preventDefault();
         setSize(e.target.value);
-
-        console.log(e.target.value, "button clicks");
     };
 
     const add = () => {
@@ -62,10 +62,18 @@ const ProductInput = ({ product }) => {
         setCart([qty, size, name, price]);
     };
 
+    const toggleWishlist = () => {
+        const wishlist = product.wishlist;
+        setWishlist((wishlist) => !wishlist);
+        console.log("is this product saved?", wishlist);
+    };
+
     useEffect(() => {
         getSizeButton();
         getStockLevel();
     }, []);
+
+    useEffect(() => {}, [wishlist]);
 
     return (
         <div>
@@ -86,13 +94,13 @@ const ProductInput = ({ product }) => {
 
             <section className={styles.ProductInput__item_incDec}>
                 <button onClick={take}> - </button>
-                <input type="text" value={qty} />
+                <input type="text" value={qty} readOnly />
                 <button onClick={add}> + </button>
             </section>
 
             <section section className={styles.ProductInput__item_shop}>
                 <button onClick={addToCart}>Add to cart</button>
-                <button>Add to wishlist</button>
+                <button onClick={toggleWishlist}>Add to wishlist</button>
                 <button>Find in store</button>
             </section>
 
@@ -102,6 +110,7 @@ const ProductInput = ({ product }) => {
                 <p>
                     Customer has selected: {size} size and {qty} qty.
                 </p>
+                <p>This item is saved: {String(wishlist)}</p>
             </section>
         </div>
     );
