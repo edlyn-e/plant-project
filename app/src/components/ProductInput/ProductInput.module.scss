@@ -10,6 +10,11 @@
         color: grey;
     }
 
+    &__sizes:focus {
+        background: rgb(179, 200, 125);
+        color: grey;
+    }
+
     &__item_incDec {
         margin: 20px 0px;
 
@@ -42,6 +47,10 @@
             background-color: #fff;
         }
     }
+}
+
+.Note {
+    background: rgb(255, 255, 211);
 }
 
 @media only screen and (max-width: 600px) {

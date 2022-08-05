@@ -2,19 +2,21 @@
 import styles from "./ProductInput.module.scss";
 
 // library imports
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router";
 
 // local
 import { getProductByID } from "../../services/server";
+import { CartContext } from "../../context/CartContext";
 
-const ProductInput = () => {
+const ProductInput = ({ product }) => {
     const { id } = useParams();
     const [sizeButton, setSizeButton] = useState([]);
     const [size, setSize] = useState("select");
     const [stock, setStock] = useState([]);
     const [qty, setQty] = useState(0);
+    const { cart, setCart } = useContext(CartContext);
 
     const getSizeButton = async () => {
         const info = await getProductByID(id);
@@ -47,10 +49,17 @@ const ProductInput = () => {
     };
 
     const take = () => {
-        if (qty <= 0) {
-            return;
-        }
+        if (qty <= 0) return;
+
         setQty((qty) => qty - 1);
+    };
+
+    const addToCart = () => {
+        console.log("I have added " + qty + " " + size + " of " + product.name);
+
+        const name = product.name;
+        const price = product.price;
+        setCart([qty, size, name, price]);
     };
 
     useEffect(() => {
@@ -82,15 +91,16 @@ const ProductInput = () => {
             </section>
 
             <section section className={styles.ProductInput__item_shop}>
-                <button>Add to cart</button>
+                <button onClick={addToCart}>Add to cart</button>
                 <button>Add to wishlist</button>
                 <button>Find in store</button>
             </section>
 
-            <section>
+            <section className={styles.Note}>
+                {cart}
                 <p>Available stock: {stock}</p>
                 <p>
-                    Customer has selected: {size} size and {qty} qty.{" "}
+                    Customer has selected: {size} size and {qty} qty.
                 </p>
             </section>
         </div>

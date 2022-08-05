@@ -12,31 +12,37 @@ import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home/Home";
 import Cart from "./containers/Cart/Cart";
 import ProductPage from "./containers/ProductPage/ProductPage";
+import CartProvider from "./context/CartContext";
 
 const App = () => {
     return (
         <div>
             <div className={styles.App}>
-                <BrowserRouter>
-                    <div className={styles.App__header}>
-                        <Nav />
-                        <SearchBar />
-                    </div>
+                <CartProvider>
+                    <BrowserRouter>
+                        <div className={styles.App__header}>
+                            <Nav />
+                            <SearchBar />
+                        </div>
 
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route
-                            path="/login"
-                            element={<h1>LOG IN/SIGN UP</h1>}
-                        />
-                        <Route
-                            path="/saved-items"
-                            element={<h1>SAVED ITEMS</h1>}
-                        />
-                        <Route path="/cart" element={<Cart />} />
-                        <Route path={`product/:id`} element={<ProductPage />} />
-                    </Routes>
-                </BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route
+                                path="/login"
+                                element={<h1>LOG IN/SIGN UP</h1>}
+                            />
+                            <Route
+                                path="/saved-items"
+                                element={<h1>SAVED ITEMS</h1>}
+                            />
+                            <Route path="/cart" element={<Cart />} />
+                            <Route
+                                path={`product/:id`}
+                                element={<ProductPage />}
+                            />
+                        </Routes>
+                    </BrowserRouter>
+                </CartProvider>
             </div>
             <Footer />
         </div>
