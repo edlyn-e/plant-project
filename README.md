@@ -10,39 +10,36 @@ This goal of this project is to reinforce and further develop my skills and unde
 
 ### Criteria
 
-A minimum of three pages:
+Three Pages:
 
--   Home Page
-    -   Product grid
-    -   Carousel of featured products
--   Product page where
+1.  Home Page
+    -   [x] Product grid
+    -   [x] Carousel of featured products
+2.  Product page where
+
     -   add the item to cart
     -   select product variants
+    -   [x] displays product information (see line 30)
 
-All products should be stored in Firestore:
-
--   Product Info
-    -   Quantity
-    -   Variants (size, colors, styles etc.)
-    -   Price per unit
-    -   Name
-    -   Image URL
-    -   Saved items
-
-All data should be stored in Firestore and fetched by frontend.
-There should be NO static product data
-
-The third page: Create a cart system using Firestore and React.
-
--   Cart page in React application
+3.  Create a cart system
+    -   list of items
+    -   add/remove items from cart
+    -   edit qty
     -   prevent users from adding items that are no longer in stock
 
-In the cart page:
+Firestore should store the following information about the products:
 
--   List of items in cart
--   Add/Remove items from cart
--   Edit quantity
-    -   Example: Customer wants 10 items, instead of clicking " + " 10x, input/select to be able to add 10 items at once
+-   qty
+-   variants
+-   price
+-   name
+-   image url
+-   saved or not
+
+Notes:
+
+-   All data should be stored in Firestore and fetched by frontend.
+-   There should be NO static product data
 
 ### Mindmap
 
