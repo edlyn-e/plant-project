@@ -5,39 +5,11 @@ import styles from "./Cart.module.scss";
 import { useContext, useEffect, useState } from "react";
 
 // local files
-import CartForm from "../../components/CartForm/CartForm";
 import { CartContext } from "../../context/CartContext";
 
 const Cart = () => {
     const { cart } = useContext(CartContext);
-    const [cartItem, setCartItem] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
-
-    useEffect(() => {
-        const cartData = [];
-        const cartCost = [];
-
-        const quantity = cart[0];
-        const size = cart[1];
-        const name = cart[2];
-        const cost = cart[3];
-        const id = cart[4];
-
-        cartData.push({
-            qty: quantity ? quantity : "no qty",
-            size: size ? size : "no size selected",
-            name: name ? name : "no item select",
-            price: cost ? cost : "nothing yet",
-            id: id ? id : "",
-        });
-
-        const totalSum = (quantity ? quantity : 0) * (cost ? cost : 0);
-
-        cartCost.push(totalSum);
-
-        setCartItem(cartData);
-        setTotalPrice(cartCost);
-    }, []);
+    const [total, setTotal] = useState(0);
 
     const handleDecrement = () => {
         console.log("dec button clicks");
@@ -47,30 +19,33 @@ const Cart = () => {
         console.log("inc button clicks");
     };
 
-    const updateQty = (event) => {
-        console.log(event.target.value);
-    };
-
     console.log("cart", cart);
-    console.log("cart item ", cartItem);
-    console.log("totalPrice", totalPrice);
+
+    useEffect(() => {
+        const sum = cart.map((item) => {
+            return item.qty * item.price;
+        });
+
+        const grandTotal = sum.reduce((prev, curr) => prev + curr, 0);
+
+        setTotal(grandTotal);
+    });
 
     return (
         <div className={styles.Cart}>
-            <CartForm />
             <div className={styles.Cart__basket}>
                 <h2>Cart Summary</h2>
                 <section>
-                    {cartItem.length > 0 &&
-                        cartItem.map((item) => {
+                    {cart.length > 0 &&
+                        cart.map((item, index) => {
                             return (
                                 <section
                                     className={styles.Cart__item}
-                                    key={item.id}
+                                    key={index}
                                 >
                                     <section className={styles.Cart__header}>
                                         <p>{item.name}</p>
-                                        <p>{item.price}</p>
+                                        <p>{item.price.toFixed(2)} ea</p>
                                     </section>
                                     <span>
                                         <button
@@ -82,7 +57,7 @@ const Cart = () => {
                                         <input
                                             type="text"
                                             value={item.qty}
-                                            onChange={updateQty}
+                                            readOnly
                                             className={styles.Cart__qty}
                                         />
                                         <button
@@ -96,10 +71,10 @@ const Cart = () => {
                                 </section>
                             );
                         })}
-                    {cartItem.length === 0 && "Nothing here yet"}
+                    {cart.length === 0 && "Nothing here yet"}
                 </section>
                 <section className={styles.Cart__total}>
-                    <p>Subtotal: ${totalPrice}</p>
+                    <p>Subtotal: ${total}</p>
                 </section>
             </div>
         </div>
