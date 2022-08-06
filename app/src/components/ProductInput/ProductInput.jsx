@@ -59,7 +59,10 @@ const ProductInput = ({ product }) => {
 
         const name = product.name;
         const price = product.price;
-        setCart([qty, size, name, price, id]);
+        const copyOf = [...cart];
+        copyOf.push({ name, price, qty, size });
+        console.log("copy of", copyOf);
+        setCart(copyOf);
     };
 
     const toggleWishlist = () => {
@@ -105,7 +108,6 @@ const ProductInput = ({ product }) => {
             </section>
 
             <section className={styles.Note}>
-                {cart}
                 <p>Available stock: {stock}</p>
                 <p>
                     Customer has selected: {size} size and {qty} qty.
