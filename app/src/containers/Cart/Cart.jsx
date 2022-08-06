@@ -14,8 +14,8 @@ const Cart = () => {
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
-        const cartData = [];
-        const cartCost = [];
+        const cartData = [...cartItem];
+        const cartCost = totalPrice;
 
         const quantity = cart[0];
         const size = cart[1];
@@ -33,10 +33,8 @@ const Cart = () => {
 
         const totalSum = (quantity ? quantity : 0) * (cost ? cost : 0);
 
-        cartCost.push(totalSum);
-
         setCartItem(cartData);
-        setTotalPrice(cartCost);
+        setTotalPrice(cartCost + totalSum);
     }, []);
 
     const handleDecrement = () => {
@@ -54,6 +52,7 @@ const Cart = () => {
     console.log("cart", cart);
     console.log("cart item ", cartItem);
     console.log("totalPrice", totalPrice);
+    console.log("qty", cart.quantity);
 
     return (
         <div className={styles.Cart}>
@@ -99,7 +98,7 @@ const Cart = () => {
                     {cartItem.length === 0 && "Nothing here yet"}
                 </section>
                 <section className={styles.Cart__total}>
-                    <p>Subtotal: ${totalPrice}</p>
+                    <p>Subtotal: ${totalPrice.toFixed(2)}</p>
                 </section>
             </div>
         </div>
