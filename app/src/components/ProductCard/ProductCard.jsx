@@ -10,7 +10,9 @@ const ProductCard = ({ productName, productPrice, productImages }) => {
                 className={styles.ProductCard__image}
             />
             <p className={styles.ProductCard__name}>{productName}</p>
-            <p className={styles.ProductCard__price}>${productPrice}</p>
+            <p className={styles.ProductCard__price}>
+                ${productPrice.toFixed(2)}
+            </p>
         </div>
     );
 };

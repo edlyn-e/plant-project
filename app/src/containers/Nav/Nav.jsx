@@ -6,13 +6,6 @@ import { NavLink } from "react-router-dom";
 import { FaHome, FaHeart, FaShoppingCart } from "react-icons/fa";
 import { BsFillPersonFill } from "react-icons/bs";
 
-/*
-TO DO: for mobile screens 
-- make navbar categories collapsible to a hamburger menu
-- make search input collapsible to a search icon 
-
-*/
-
 const Nav = () => {
     return (
         <div className={styles.Nav}>

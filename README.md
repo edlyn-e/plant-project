@@ -19,15 +19,15 @@ Three Pages:
     -   [x] Carousel of featured products
 2.  Product page where
 
-    -   add the item to cart
-    -   select product variants
+    -   [x] add the item to cart
+    -   [x] select product variants
     -   [x] displays product information (see line 30)
 
 3.  Create a cart system
     -   list of items
     -   add/remove items from cart
     -   edit qty
-    -   prevent users from adding items that are no longer in stock
+    -   [x] prevent users from adding items that are no longer in stock
 
 Firestore should store the following information about the products:
 
