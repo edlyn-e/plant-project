@@ -24,10 +24,10 @@ const Cart = () => {
         const id = cart[4];
 
         cartData.push({
-            qty: quantity ? quantity : "",
-            size: size ? size : "",
-            name: name ? name : "",
-            price: cost ? cost : "",
+            qty: quantity ? quantity : "no qty",
+            size: size ? size : "no size selected",
+            name: name ? name : "no item select",
+            price: cost ? cost : "nothing yet",
             id: id ? id : "",
         });
 
@@ -38,6 +38,18 @@ const Cart = () => {
         setCartItem(cartData);
         setTotalPrice(cartCost);
     }, []);
+
+    const handleDecrement = () => {
+        console.log("dec button clicks");
+    };
+
+    const handleIncrement = () => {
+        console.log("inc button clicks");
+    };
+
+    const updateQty = (event) => {
+        console.log(event.target.value);
+    };
 
     console.log("cart", cart);
     console.log("cart item ", cartItem);
@@ -60,11 +72,31 @@ const Cart = () => {
                                         <p>{item.name}</p>
                                         <p>{item.price}</p>
                                     </section>
-                                    <p>{`${item.qty} ${item.size}`}</p>
+                                    <span>
+                                        <button
+                                            className={styles.Cart__qty_btn}
+                                            onClick={handleDecrement}
+                                        >
+                                            -
+                                        </button>
+                                        <input
+                                            type="text"
+                                            value={item.qty}
+                                            onChange={updateQty}
+                                            className={styles.Cart__qty}
+                                        />
+                                        <button
+                                            className={styles.Cart__qty_btn}
+                                            onClick={handleIncrement}
+                                        >
+                                            +
+                                        </button>
+                                    </span>
+                                    <p>{item.size}</p>
                                 </section>
                             );
                         })}
-                    {cartItem.lengtth === 0 && "Nothing here yet"}
+                    {cartItem.length === 0 && "Nothing here yet"}
                 </section>
                 <section className={styles.Cart__total}>
                     <p>Subtotal: ${totalPrice}</p>
