@@ -13,10 +13,10 @@ import { CartContext } from "../../context/CartContext";
 const ProductInput = ({ product }) => {
     const { id } = useParams();
     const { cart, setCart } = useContext(CartContext);
+    const [stock, setStock] = useState(0);
 
     const [sizeButton, setSizeButton] = useState([]);
     const [size, setSize] = useState("select");
-    const [stock, setStock] = useState([]);
     const [qty, setQty] = useState(0);
     const [wishlist, setWishlist] = useState(false);
 
@@ -38,7 +38,7 @@ const ProductInput = ({ product }) => {
         setSize(e.target.value);
     };
 
-    const add = () => {
+    const handleIncrement = () => {
         setQty((qty) => qty + 1);
         if (qty > stock) {
             alert(
@@ -48,7 +48,7 @@ const ProductInput = ({ product }) => {
         return;
     };
 
-    const take = () => {
+    const handleDecrement = () => {
         if (qty <= 0) return;
 
         setQty((qty) => qty - 1);
@@ -59,7 +59,7 @@ const ProductInput = ({ product }) => {
 
         const name = product.name;
         const price = product.price;
-        setCart([qty, size, name, price]);
+        setCart([qty, size, name, price, id]);
     };
 
     const toggleWishlist = () => {
@@ -93,9 +93,9 @@ const ProductInput = ({ product }) => {
             <div>Size Guide</div>
 
             <section className={styles.ProductInput__item_incDec}>
-                <button onClick={take}> - </button>
+                <button onClick={handleDecrement}> - </button>
                 <input type="text" value={qty} readOnly />
-                <button onClick={add}> + </button>
+                <button onClick={handleIncrement}> + </button>
             </section>
 
             <section section className={styles.ProductInput__item_shop}>

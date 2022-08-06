@@ -10,20 +10,28 @@
         padding: 10px 20px;
     }
 
-    section {
-        border-bottom: 1px solid rgb(100, 100, 100);
+    &__item {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 20px 0px;
+        margin: 20px 0px;
+
+        p {
+            margin: 0px;
+        }
     }
 
-    span {
+    &__header {
         display: flex;
         justify-content: space-between;
     }
 
-    p {
-        color: rgb(100, 100, 100);
+    &__qty {
+        width: 60px;
+        text-align: center;
     }
 
-    main {
+    &__total {
         display: flex;
         justify-content: flex-end;
     }
