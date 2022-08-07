@@ -30,7 +30,7 @@ const ProductPage = () => {
     useEffect(() => {
         getItem();
         getImages();
-    }, []);
+    });
 
     return (
         <div className={styles.ProductPage}>
@@ -62,7 +62,7 @@ const ProductPage = () => {
                             ${item.price}
                         </h3>
                         <p>
-                            <FaRegStar /> <FaRegStar /> <FaRegStar />
+                            <FaRegStar /> <FaRegStar /> <FaRegStar />{" "}
                             <FaRegStar /> <FaRegStar /> <br />
                             (No reviews yet)
                         </p>

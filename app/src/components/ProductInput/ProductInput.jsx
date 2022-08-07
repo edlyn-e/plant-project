@@ -14,10 +14,11 @@ const ProductInput = ({ product }) => {
     const { id } = useParams();
     const { cart, setCart } = useContext(CartContext);
     const [stock, setStock] = useState(0);
+    const [qty, setQty] = useState(0);
 
     const [sizeButton, setSizeButton] = useState([]);
     const [size, setSize] = useState("select");
-    const [qty, setQty] = useState(0);
+
     const [wishlist, setWishlist] = useState(false);
 
     const getSizeButton = async () => {
@@ -54,27 +55,44 @@ const ProductInput = ({ product }) => {
         setQty((qty) => qty - 1);
     };
 
+    // adding things to cart
     const addToCart = () => {
-        console.log("I have added " + qty + " " + size + " of " + product.name);
-
         const name = product.name;
         const price = product.price;
+
+        // copy of the existing cart array
         const copyOf = [...cart];
-        copyOf.push({ name, price, qty, size });
+
+        const newItem = { name, price, qty, size };
+
+        const exists = cart.some((item) => {
+            if (item.name === newItem.name && item.size === newItem.size) {
+                console.log("the item exists in newItem");
+                return true;
+            }
+            return false;
+        });
+
+        const index = cart.map((item) => item.size).indexOf(newItem.size);
+
+        if (exists) {
+            copyOf[index].qty += qty;
+
+            console.log("the product exists in the cart");
+        } else copyOf.push(newItem);
+
         console.log("copy of", copyOf);
         setCart(copyOf);
     };
 
     const toggleWishlist = () => {
-        const wishlist = product.wishlist;
         setWishlist((wishlist) => !wishlist);
-        console.log("is this product saved?", wishlist);
     };
 
     useEffect(() => {
         getSizeButton();
         getStockLevel();
-    }, []);
+    });
 
     useEffect(() => {}, [wishlist]);
 
@@ -107,13 +125,19 @@ const ProductInput = ({ product }) => {
                 <button>Find in store</button>
             </section>
 
-            <section className={styles.Note}>
-                <p>Available stock: {stock}</p>
+            <section>
+                {wishlist ? (
+                    <p>This item has been added to the wishlist! </p>
+                ) : (
+                    ""
+                )}
+            </section>
+            {/* <section className={styles.Note}>
                 <p>
                     Customer has selected: {size} size and {qty} qty.
                 </p>
                 <p>This item is saved: {String(wishlist)}</p>
-            </section>
+            </section> */}
         </div>
     );
 };
