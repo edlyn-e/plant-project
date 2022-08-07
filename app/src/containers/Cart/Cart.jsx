@@ -12,10 +12,7 @@ const Cart = () => {
     const [total, setTotal] = useState(0);
     const cartCopy = [...cart];
 
-    console.log("This is the cart, ", cart);
     console.log("This is the copy of the cart ", cartCopy);
-
-    console.log("cart", cart);
 
     useEffect(() => {
         const sum = cart.map((item) => {
@@ -50,38 +47,44 @@ const Cart = () => {
                                     className={styles.Cart__item}
                                     key={index}
                                 >
-                                    <section className={styles.Cart__header}>
-                                        <p>{item.name}</p>
-                                        <p>${item.price.toFixed(2)} ea</p>
-                                    </section>
-                                    <p>Size: {item.size}</p>
-                                    <span>
-                                        <button
-                                            className={styles.Cart__qty_btn}
-                                            onClick={() => item.qty - 1}
+                                    <div>
+                                        <section
+                                            className={styles.Cart__header}
                                         >
-                                            -
-                                        </button>
-                                        <input
-                                            type="text"
-                                            value={item.qty}
-                                            readOnly
-                                            className={styles.Cart__qty}
-                                        />
-                                        <button
-                                            className={styles.Cart__qty_btn}
+                                            <p>{item.name}</p>
+                                            <p>${item.price.toFixed(2)} ea</p>
+                                        </section>
+                                        <p>Size: {item.size}</p>
+                                        <span>
+                                            <button
+                                                className={styles.Cart__qty_btn}
+                                                onClick={() => item.qty - 1}
+                                            >
+                                                -
+                                            </button>
+                                            <input
+                                                type="text"
+                                                value={parseInt(item.qty)}
+                                                readOnly
+                                                className={styles.Cart__qty}
+                                            />
+                                            <button
+                                                className={styles.Cart__qty_btn}
+                                            >
+                                                +
+                                            </button>
+                                        </span>
+                                        <section
+                                            className={styles.Cart__remove}
                                         >
-                                            +
-                                        </button>
-                                    </span>
-                                    <section className={styles.Cart__remove}>
-                                        <button
-                                            name={index}
-                                            onClick={handleDelete}
-                                        >
-                                            Remove
-                                        </button>
-                                    </section>
+                                            <button
+                                                name={index}
+                                                onClick={handleDelete}
+                                            >
+                                                Remove
+                                            </button>
+                                        </section>
+                                    </div>
                                 </section>
                             );
                         })}

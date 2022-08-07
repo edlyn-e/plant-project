@@ -92,7 +92,7 @@ const ProductInput = ({ product }) => {
     useEffect(() => {
         getSizeButton();
         getStockLevel();
-    }, []);
+    });
 
     useEffect(() => {}, [wishlist]);
 

@@ -30,7 +30,7 @@ const ProductPage = () => {
     useEffect(() => {
         getItem();
         getImages();
-    }, []);
+    });
 
     return (
         <div className={styles.ProductPage}>
