@@ -24,8 +24,8 @@ Three Pages:
     -   [x] displays product information (see line 30)
 
 3.  Create a cart system
-    -   list of items
-    -   add/remove items from cart
+    -   [x] list of items
+    -   [x] add/remove items from cart
     -   edit qty
     -   [x] prevent users from adding items that are no longer in stock
 
@@ -53,3 +53,12 @@ Inspiration: Dangerfield, Cotton:On, Muji, H&M, Uniqlo
 <img src = "./assets/mindmap_02.png">
 <img src = "./assets/mindmap_03.png">
 <img src="./assets/diagram.png">
+
+---
+
+### Known Issues
+
+-   Data is not persistent - user will lose the cart if they refresh the page.
+-   Can add more items than available, even though an alert comes up to warn the user.
+-   Add/Minus buttons are not functional inside the cart.
+-   User can add an item to cart without selecting size or qty.
