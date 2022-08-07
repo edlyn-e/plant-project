@@ -10,9 +10,6 @@ import { CartContext } from "../../context/CartContext";
 const Cart = () => {
     const { cart, setCart } = useContext(CartContext);
     const [total, setTotal] = useState(0);
-    const cartCopy = [...cart];
-
-    console.log("This is the copy of the cart ", cartCopy);
 
     useEffect(() => {
         const sum = cart.map((item) => {
