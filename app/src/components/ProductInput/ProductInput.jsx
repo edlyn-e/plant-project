@@ -54,16 +54,17 @@ const ProductInput = ({ product }) => {
         setQty((qty) => qty - 1);
     };
 
+    // adding things to cart
     const addToCart = () => {
         const name = product.name;
         const price = product.price;
+
+        // copy of the existing cart array
         const copyOf = [...cart];
 
         const newItem = { name, price, qty, size };
 
-        console.log("before");
         const exists = cart.some((item) => {
-            console.log("just before we check");
             if (item.name === newItem.name && item.size === newItem.size) {
                 console.log("the item exists in newItem");
                 return true;
@@ -71,7 +72,11 @@ const ProductInput = ({ product }) => {
             return false;
         });
 
+        const index = cart.map((item) => item.size).indexOf(newItem.size);
+
         if (exists) {
+            copyOf[index].qty += 1;
+
             console.log("the product exists in the cart");
         } else copyOf.push(newItem);
 
