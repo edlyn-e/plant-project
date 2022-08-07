@@ -14,10 +14,11 @@ const ProductInput = ({ product }) => {
     const { id } = useParams();
     const { cart, setCart } = useContext(CartContext);
     const [stock, setStock] = useState(0);
+    const [qty, setQty] = useState(0);
 
     const [sizeButton, setSizeButton] = useState([]);
     const [size, setSize] = useState("select");
-    const [qty, setQty] = useState(0);
+
     const [wishlist, setWishlist] = useState(false);
 
     const getSizeButton = async () => {
@@ -75,7 +76,7 @@ const ProductInput = ({ product }) => {
         const index = cart.map((item) => item.size).indexOf(newItem.size);
 
         if (exists) {
-            copyOf[index].qty += 1;
+            copyOf[index].qty += qty;
 
             console.log("the product exists in the cart");
         } else copyOf.push(newItem);
