@@ -45,12 +45,7 @@ const ProductGrid = () => {
                         );
                     })}
 
-                {products.length === 0 && (
-                    <p>
-                        Sorry! Looks like we don't stock that item. If you'd
-                        like to see it in our store, please let us know!
-                    </p>
-                )}
+                {products.length === 0 && <p>Stocking items...</p>}
             </section>
 
             {/* "Seeding" the products from json file to firestore */}
