@@ -59,7 +59,22 @@ const ProductInput = ({ product }) => {
         const price = product.price;
         const copyOf = [...cart];
 
-        copyOf.push({ name, price, qty, size });
+        const newItem = { name, price, qty, size };
+
+        console.log("before");
+        const exists = cart.some((item) => {
+            console.log("just before we check");
+            if (item.name === newItem.name && item.size === newItem.size) {
+                console.log("the item exists in newItem");
+                return true;
+            }
+            return false;
+        });
+
+        if (exists) {
+            console.log("the product exists in the cart");
+        } else copyOf.push(newItem);
+
         console.log("copy of", copyOf);
         setCart(copyOf);
     };
@@ -67,7 +82,6 @@ const ProductInput = ({ product }) => {
     const toggleWishlist = () => {
         setWishlist((wishlist) => !wishlist);
     };
-    console.log("is this product saved?", wishlist);
 
     useEffect(() => {
         getSizeButton();

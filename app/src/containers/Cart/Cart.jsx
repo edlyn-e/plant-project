@@ -10,6 +10,10 @@ import { CartContext } from "../../context/CartContext";
 const Cart = () => {
     const { cart, setCart } = useContext(CartContext);
     const [total, setTotal] = useState(0);
+    const cartCopy = [...cart];
+
+    console.log("This is the cart, ", cart);
+    console.log("This is the copy of the cart ", cartCopy);
 
     console.log("cart", cart);
 
@@ -26,9 +30,12 @@ const Cart = () => {
         const name = e.target.getAttribute("name");
         console.log("this is name", name);
 
-        const filteredCart = cart.filter((item) => item.name !== name);
+        console.log("the cart array", cart);
+        const filteredCart = cart.filter(
+            (_, index) => index !== parseInt(name),
+        );
         setCart(filteredCart);
-        console.log("delete", cart);
+        console.log("filtered cart", filteredCart);
     };
 
     return (
@@ -69,7 +76,7 @@ const Cart = () => {
                                     </span>
                                     <section className={styles.Cart__remove}>
                                         <button
-                                            name={item.name}
+                                            name={index}
                                             onClick={handleDelete}
                                         >
                                             Remove
