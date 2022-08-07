@@ -20,16 +20,11 @@ const Cart = () => {
     }, [cart]);
 
     const handleDelete = (e) => {
-        console.log("handle delete clicks");
         const name = e.target.getAttribute("name");
-        console.log("this is name", name);
-
-        console.log("the cart array", cart);
         const filteredCart = cart.filter(
             (_, index) => index !== parseInt(name),
         );
         setCart(filteredCart);
-        console.log("filtered cart", filteredCart);
     };
 
     return (

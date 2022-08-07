@@ -67,7 +67,6 @@ const ProductInput = ({ product }) => {
 
         const exists = cart.some((item) => {
             if (item.name === newItem.name && item.size === newItem.size) {
-                console.log("the item exists in newItem");
                 return true;
             }
             return false;
@@ -77,8 +76,6 @@ const ProductInput = ({ product }) => {
 
         if (exists) {
             copyOf[index].qty += qty;
-
-            console.log("the product exists in the cart");
         } else copyOf.push(newItem);
 
         console.log("copy of", copyOf);
