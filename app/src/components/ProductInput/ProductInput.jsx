@@ -55,21 +55,19 @@ const ProductInput = ({ product }) => {
     };
 
     const addToCart = () => {
-        console.log("I have added " + qty + " " + size + " of " + product.name);
-
         const name = product.name;
         const price = product.price;
         const copyOf = [...cart];
+
         copyOf.push({ name, price, qty, size });
         console.log("copy of", copyOf);
         setCart(copyOf);
     };
 
     const toggleWishlist = () => {
-        const wishlist = product.wishlist;
         setWishlist((wishlist) => !wishlist);
-        console.log("is this product saved?", wishlist);
     };
+    console.log("is this product saved?", wishlist);
 
     useEffect(() => {
         getSizeButton();
@@ -107,13 +105,19 @@ const ProductInput = ({ product }) => {
                 <button>Find in store</button>
             </section>
 
-            <section className={styles.Note}>
-                <p>Available stock: {stock}</p>
+            <section>
+                {wishlist ? (
+                    <p>This item has been added to the wishlist! </p>
+                ) : (
+                    ""
+                )}
+            </section>
+            {/* <section className={styles.Note}>
                 <p>
                     Customer has selected: {size} size and {qty} qty.
                 </p>
                 <p>This item is saved: {String(wishlist)}</p>
-            </section>
+            </section> */}
         </div>
     );
 };

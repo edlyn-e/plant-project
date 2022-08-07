@@ -42,4 +42,14 @@
         display: flex;
         justify-content: flex-end;
     }
+
+    &__remove {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            border: none;
+            color: rgb(183, 114, 114);
+        }
+    }
 }

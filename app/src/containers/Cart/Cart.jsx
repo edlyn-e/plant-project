@@ -8,16 +8,8 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
 const Cart = () => {
-    const { cart } = useContext(CartContext);
+    const { cart, setCart } = useContext(CartContext);
     const [total, setTotal] = useState(0);
-
-    const handleDecrement = () => {
-        console.log("dec button clicks");
-    };
-
-    const handleIncrement = () => {
-        console.log("inc button clicks");
-    };
 
     console.log("cart", cart);
 
@@ -25,11 +17,19 @@ const Cart = () => {
         const sum = cart.map((item) => {
             return item.qty * item.price;
         });
-
         const grandTotal = sum.reduce((prev, curr) => prev + curr, 0);
-
         setTotal(grandTotal);
-    });
+    }, [cart]);
+
+    const handleDelete = (e) => {
+        console.log("handle delete clicks");
+        const name = e.target.getAttribute("name");
+        console.log("this is name", name);
+
+        const filteredCart = cart.filter((item) => item.name !== name);
+        setCart(filteredCart);
+        console.log("delete", cart);
+    };
 
     return (
         <div className={styles.Cart}>
@@ -45,12 +45,13 @@ const Cart = () => {
                                 >
                                     <section className={styles.Cart__header}>
                                         <p>{item.name}</p>
-                                        <p>{item.price.toFixed(2)} ea</p>
+                                        <p>${item.price.toFixed(2)} ea</p>
                                     </section>
+                                    <p>Size: {item.size}</p>
                                     <span>
                                         <button
                                             className={styles.Cart__qty_btn}
-                                            onClick={handleDecrement}
+                                            onClick={() => item.qty - 1}
                                         >
                                             -
                                         </button>
@@ -62,19 +63,25 @@ const Cart = () => {
                                         />
                                         <button
                                             className={styles.Cart__qty_btn}
-                                            onClick={handleIncrement}
                                         >
                                             +
                                         </button>
                                     </span>
-                                    <p>{item.size}</p>
+                                    <section className={styles.Cart__remove}>
+                                        <button
+                                            name={item.name}
+                                            onClick={handleDelete}
+                                        >
+                                            Remove
+                                        </button>
+                                    </section>
                                 </section>
                             );
                         })}
                     {cart.length === 0 && "Nothing here yet"}
                 </section>
                 <section className={styles.Cart__total}>
-                    <p>Subtotal: ${total}</p>
+                    <p>Subtotal: ${total.toFixed(2)}</p>
                 </section>
             </div>
         </div>
