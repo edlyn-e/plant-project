@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 
 // local files
 import { CartContext } from "../../context/CartContext";
+import { getStockLevel } from "../../services/server";
 
 const Cart = () => {
     const { cart, setCart } = useContext(CartContext);
@@ -19,6 +20,11 @@ const Cart = () => {
         setTotal(grandTotal);
     }, [cart]);
 
+    const getStock = async (id) => {
+        const awaitingStock = await getStockLevel(id);
+        return awaitingStock;
+    };
+
     const handleDelete = (e) => {
         const name = e.target.getAttribute("name");
         const filteredCart = cart.filter(
@@ -30,15 +36,16 @@ const Cart = () => {
     const updateQty = (item, changeQty) => {
         const foundItem = cart.find((itemInCart) => itemInCart === item);
         const anotherCopy = [...cart];
+        console.log("I found the item!", foundItem);
 
-        if (foundItem) {
-            anotherCopy[cart.indexOf(foundItem)].qty += changeQty;
-            console.log("this is another copy", anotherCopy);
-            setCart(anotherCopy);
-        }
+        if (!foundItem) return;
+        const stock = getStock(foundItem.id);
+        const qtyInCart = (anotherCopy[cart.indexOf(foundItem)].qty +=
+            changeQty);
+
+        console.log("this is another copy", anotherCopy);
+        setCart(anotherCopy);
     };
-
-    useEffect(() => {}, []);
 
     return (
         <div className={styles.Cart}>

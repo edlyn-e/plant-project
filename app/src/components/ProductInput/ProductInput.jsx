@@ -29,7 +29,6 @@ const ProductInput = ({ product }) => {
 
     const getStock = async () => {
         const awaitingStock = await getStockLevel(id);
-
         setStock(awaitingStock);
     };
 
@@ -58,7 +57,6 @@ const ProductInput = ({ product }) => {
             alert(
                 "Oops! Sorry, we don't have that much at the moment. For bulk orders, please contact us directly.",
             );
-
             return;
         }
 
@@ -72,8 +70,7 @@ const ProductInput = ({ product }) => {
 
         // copy of the existing cart array
         const copyOf = [...cart];
-
-        const newItem = { name, price, qty, size };
+        const newItem = { name, price, qty, size, id };
 
         const exists = cart.some((item) => {
             if (item.name === newItem.name && item.size === newItem.size) {
@@ -126,7 +123,7 @@ const ProductInput = ({ product }) => {
                 <button onClick={handleIncrement}> + </button>
             </section>
 
-            <section section className={styles.ProductInput__item_shop}>
+            <section className={styles.ProductInput__item_shop}>
                 <button onClick={addToCart}>Add to cart</button>
                 <button onClick={toggleWishlist}>Add to wishlist</button>
                 <button>Find in store</button>
@@ -135,16 +132,8 @@ const ProductInput = ({ product }) => {
             <section>
                 {wishlist ? (
                     <p>This item has been added to the wishlist! </p>
-                ) : (
-                    ""
-                )}
+                ) : null}
             </section>
-            {/* <section className={styles.Note}>
-                <p>
-                    Customer has selected: {size} size and {qty} qty.
-                </p>
-                <p>This item is saved: {String(wishlist)}</p>
-            </section> */}
         </div>
     );
 };

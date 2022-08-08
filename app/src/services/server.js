@@ -61,8 +61,7 @@ export const getProductByID = async (id) => {
 
 export const getStockLevel = async (id) => {
     const info = await getProductByID(id);
-    console.log("this is info: ", info);
-    const stockLevel = info.stock;
+    const stockLevel = await info.stock;
     console.log("in the server: the stock level of this item is: ", stockLevel);
     return stockLevel;
 };
