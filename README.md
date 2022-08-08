@@ -26,7 +26,7 @@ Three Pages:
 3.  Create a cart system
     -   [x] list of items
     -   [x] add/remove items from cart
-    -   edit qty
+    -   [x] edit qty
     -   [x] prevent users from adding items that are no longer in stock
 
 Firestore should store the following information about the products:
