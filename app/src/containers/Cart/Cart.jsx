@@ -6,13 +6,11 @@ import { useContext, useEffect, useState } from "react";
 
 // local files
 import { CartContext } from "../../context/CartContext";
+import { getStockLevel } from "../../services/server";
 
 const Cart = () => {
     const { cart, setCart } = useContext(CartContext);
     const [total, setTotal] = useState(0);
-    const cartCopy = [...cart];
-
-    console.log("This is the copy of the cart ", cartCopy);
 
     useEffect(() => {
         const sum = cart.map((item) => {
@@ -22,18 +20,38 @@ const Cart = () => {
         setTotal(grandTotal);
     }, [cart]);
 
-    const handleDelete = (e) => {
-        console.log("handle delete clicks");
-        const name = e.target.getAttribute("name");
-        console.log("this is name", name);
+    const getStock = async (id) => {
+        const awaitingStock = await getStockLevel(id);
+        console.log("this is awaiting stock", awaitingStock);
+        return awaitingStock;
+    };
 
-        console.log("the cart array", cart);
+    const handleDelete = (e) => {
+        const name = e.target.getAttribute("name");
         const filteredCart = cart.filter(
             (_, index) => index !== parseInt(name),
         );
         setCart(filteredCart);
-        console.log("filtered cart", filteredCart);
     };
+
+    const updateQty = (item, changeQty) => {
+        const foundItem = cart.find((itemInCart) => itemInCart === item);
+        const anotherCopy = [...cart];
+        console.log("I found the item!", foundItem);
+
+        if (!foundItem) return;
+        const stock = getStock(foundItem.id);
+        console.log("the stock levels for the foundItem's id", stock);
+        const qtyInCart = (anotherCopy[cart.indexOf(foundItem)].qty +=
+            changeQty);
+
+        if (qtyInCart <= 0) return;
+
+        console.log("this is another copy of the cart", anotherCopy);
+        setCart(anotherCopy);
+    };
+
+    useEffect(() => {}, []);
 
     return (
         <div className={styles.Cart}>
@@ -58,18 +76,24 @@ const Cart = () => {
                                         <span>
                                             <button
                                                 className={styles.Cart__qty_btn}
-                                                onClick={() => item.qty - 1}
+                                                onClick={() =>
+                                                    updateQty(item, -1)
+                                                }
                                             >
                                                 -
                                             </button>
                                             <input
                                                 type="text"
-                                                value={parseInt(item.qty)}
+                                                value={item.qty}
                                                 readOnly
                                                 className={styles.Cart__qty}
                                             />
+
                                             <button
                                                 className={styles.Cart__qty_btn}
+                                                onClick={() =>
+                                                    updateQty(item, +1)
+                                                }
                                             >
                                                 +
                                             </button>

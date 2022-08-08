@@ -7,14 +7,14 @@ import { useState } from "react";
 import { useParams } from "react-router";
 
 // local
-import { getProductByID } from "../../services/server";
+import { getProductByID, getStockLevel } from "../../services/server";
 import { CartContext } from "../../context/CartContext";
 
 const ProductInput = ({ product }) => {
     const { id } = useParams();
     const { cart, setCart } = useContext(CartContext);
     const [stock, setStock] = useState(0);
-    const [qty, setQty] = useState(0);
+    const [qty, setQty] = useState(1);
 
     const [sizeButton, setSizeButton] = useState([]);
     const [size, setSize] = useState("select");
@@ -27,15 +27,12 @@ const ProductInput = ({ product }) => {
         setSizeButton(sizes);
     };
 
-    const getStockLevel = async () => {
-        const info = await getProductByID(id);
-        const stockLevel = info.stock;
-        console.log("the stock level of this item is: ", stockLevel);
-        setStock(stockLevel);
+    const getStock = async () => {
+        const awaitingStock = await getStockLevel(id);
+        setStock(awaitingStock);
     };
 
     const handleClick = (e) => {
-        e.preventDefault();
         setSize(e.target.value);
     };
 
@@ -46,7 +43,6 @@ const ProductInput = ({ product }) => {
                 "Oops! Sorry, we don't have that much at the moment. For bulk orders, please contact us directly.",
             );
         }
-        return;
     };
 
     const handleDecrement = () => {
@@ -57,17 +53,27 @@ const ProductInput = ({ product }) => {
 
     // adding things to cart
     const addToCart = () => {
+        if (qty > stock) {
+            alert(
+                "Oops! Sorry, we don't have that much at the moment. For bulk orders, please contact us directly.",
+            );
+            return;
+        }
+
+        if (size === "select") {
+            alert("please select a size");
+            return;
+        }
+
         const name = product.name;
         const price = product.price;
 
         // copy of the existing cart array
         const copyOf = [...cart];
-
-        const newItem = { name, price, qty, size };
+        const newItem = { name, price, qty, size, id };
 
         const exists = cart.some((item) => {
             if (item.name === newItem.name && item.size === newItem.size) {
-                console.log("the item exists in newItem");
                 return true;
             }
             return false;
@@ -77,8 +83,6 @@ const ProductInput = ({ product }) => {
 
         if (exists) {
             copyOf[index].qty += qty;
-
-            console.log("the product exists in the cart");
         } else copyOf.push(newItem);
 
         console.log("copy of", copyOf);
@@ -91,8 +95,8 @@ const ProductInput = ({ product }) => {
 
     useEffect(() => {
         getSizeButton();
-        getStockLevel();
-    });
+        getStock();
+    }, []);
 
     useEffect(() => {}, [wishlist]);
 
@@ -119,7 +123,7 @@ const ProductInput = ({ product }) => {
                 <button onClick={handleIncrement}> + </button>
             </section>
 
-            <section section className={styles.ProductInput__item_shop}>
+            <section className={styles.ProductInput__item_shop}>
                 <button onClick={addToCart}>Add to cart</button>
                 <button onClick={toggleWishlist}>Add to wishlist</button>
                 <button>Find in store</button>
@@ -128,16 +132,8 @@ const ProductInput = ({ product }) => {
             <section>
                 {wishlist ? (
                     <p>This item has been added to the wishlist! </p>
-                ) : (
-                    ""
-                )}
+                ) : null}
             </section>
-            {/* <section className={styles.Note}>
-                <p>
-                    Customer has selected: {size} size and {qty} qty.
-                </p>
-                <p>This item is saved: {String(wishlist)}</p>
-            </section> */}
         </div>
     );
 };
