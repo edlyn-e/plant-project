@@ -22,6 +22,7 @@ const Cart = () => {
 
     const getStock = async (id) => {
         const awaitingStock = await getStockLevel(id);
+        console.log("this is awaiting stock", awaitingStock);
         return awaitingStock;
     };
 
@@ -40,12 +41,17 @@ const Cart = () => {
 
         if (!foundItem) return;
         const stock = getStock(foundItem.id);
+        console.log("the stock levels for the foundItem's id", stock);
         const qtyInCart = (anotherCopy[cart.indexOf(foundItem)].qty +=
             changeQty);
 
-        console.log("this is another copy", anotherCopy);
+        if (qtyInCart <= 0) return;
+
+        console.log("this is another copy of the cart", anotherCopy);
         setCart(anotherCopy);
     };
+
+    useEffect(() => {}, []);
 
     return (
         <div className={styles.Cart}>

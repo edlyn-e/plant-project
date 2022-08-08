@@ -59,4 +59,4 @@ Inspiration: Dangerfield, Cotton:On, Muji, H&M, Uniqlo
 ### Known Issues
 
 -   Data is not persistent - user will lose the cart if they refresh the page.
--   Can add more items than available, even though an alert comes up to warn the user.
+-   Though you cannot add more items that what it in stock from the ProductPage, you can edit the item qty from the Cart to add as many as you like.
