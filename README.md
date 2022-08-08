@@ -60,5 +60,3 @@ Inspiration: Dangerfield, Cotton:On, Muji, H&M, Uniqlo
 
 -   Data is not persistent - user will lose the cart if they refresh the page.
 -   Can add more items than available, even though an alert comes up to warn the user.
--   Add/Minus buttons are not functional inside the cart.
--   User can add an item to cart without selecting size or qty.

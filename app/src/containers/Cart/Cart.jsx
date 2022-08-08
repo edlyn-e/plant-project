@@ -27,6 +27,19 @@ const Cart = () => {
         setCart(filteredCart);
     };
 
+    const updateQty = (item, changeQty) => {
+        const foundItem = cart.find((itemInCart) => itemInCart === item);
+        const anotherCopy = [...cart];
+
+        if (foundItem) {
+            anotherCopy[cart.indexOf(foundItem)].qty += changeQty;
+            console.log("this is another copy", anotherCopy);
+            setCart(anotherCopy);
+        }
+    };
+
+    useEffect(() => {}, []);
+
     return (
         <div className={styles.Cart}>
             <div className={styles.Cart__basket}>
@@ -50,18 +63,24 @@ const Cart = () => {
                                         <span>
                                             <button
                                                 className={styles.Cart__qty_btn}
-                                                onClick={() => item.qty - 1}
+                                                onClick={() =>
+                                                    updateQty(item, -1)
+                                                }
                                             >
                                                 -
                                             </button>
                                             <input
                                                 type="text"
-                                                value={parseInt(item.qty)}
+                                                value={item.qty}
                                                 readOnly
                                                 className={styles.Cart__qty}
                                             />
+
                                             <button
                                                 className={styles.Cart__qty_btn}
+                                                onClick={() =>
+                                                    updateQty(item, +1)
+                                                }
                                             >
                                                 +
                                             </button>
