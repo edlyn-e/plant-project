@@ -23,7 +23,7 @@ const Cart = () => {
     const getStock = async (id) => {
         const awaitingStock = await getStockLevel(id);
         console.log("this is awaiting stock", awaitingStock);
-        return awaitingStock;
+        return await awaitingStock;
     };
 
     const handleDelete = (e) => {
@@ -40,15 +40,18 @@ const Cart = () => {
         console.log("I found the item!", foundItem);
 
         if (!foundItem) return;
-        const stock = getStock(foundItem.id);
-        console.log("the stock levels for the foundItem's id", stock);
-        const qtyInCart = (anotherCopy[cart.indexOf(foundItem)].qty +=
-            changeQty);
+        const stock = getStock(foundItem.id).then((stockLevel) => {
+            const qtyInCart = (anotherCopy[cart.indexOf(foundItem)].qty +=
+                changeQty);
 
-        if (qtyInCart <= 0) return;
+            if (qtyInCart <= 0) return;
 
-        console.log("this is another copy of the cart", anotherCopy);
-        setCart(anotherCopy);
+            if (qtyInCart > stockLevel) return;
+
+            console.log("this is another copy of the cart", anotherCopy);
+            setCart(anotherCopy);
+            return stockLevel;
+        });
     };
 
     useEffect(() => {}, []);
