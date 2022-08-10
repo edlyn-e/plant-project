@@ -11,6 +11,7 @@ import { getProductByID, getStockLevel } from "../../services/server";
 import { CartContext } from "../../context/CartContext";
 
 const ProductInput = ({ product }) => {
+    // see what the component has access to, to save time/processing on API calls.
     const { id } = useParams();
     const { cart, setCart } = useContext(CartContext);
     const [stock, setStock] = useState(0);

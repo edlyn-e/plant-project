@@ -12,6 +12,11 @@ import { getProductByID } from "../../services/server";
 import ProductInput from "../../components/ProductInput/ProductInput";
 
 const ProductPage = () => {
+    // Refactoring:
+    // reduce repetition where possible.
+    // i.e. check what you actually need.
+    // is 'getImages' needed? What does getItem retrieve from the database?
+
     const { id } = useParams();
     const [item, setItem] = useState([]);
     const [images, setImages] = useState([]);
@@ -30,7 +35,7 @@ const ProductPage = () => {
     useEffect(() => {
         getItem();
         getImages();
-    });
+    }, []);
 
     return (
         <div className={styles.ProductPage}>
