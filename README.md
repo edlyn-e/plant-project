@@ -8,8 +8,6 @@ This goal of this project is to reinforce and further develop my skills and unde
 -   React-router-dom
 -   Firebase/Firestore
 
----
-
 ### Criteria
 
 Three Pages:
@@ -43,7 +41,14 @@ Notes:
 -   All data should be stored in Firestore and fetched by frontend.
 -   There should be NO static product data
 
----
+### Screenshots
+
+<img src ="./assets/home-page.png" />
+<img src ="./assets/home-page-2.png" />
+<img src ="./assets/product-page.png" />
+<img src ="./assets/cart-page.png" />
+
+<!-- NOTE: add screenshots of final product here to showcase the work. If people want to see the working project they will likely get in contact -->
 
 ### Mindmap
 
@@ -54,8 +59,6 @@ Inspiration: Dangerfield, Cotton:On, Muji, H&M, Uniqlo
 <img src = "./assets/mindmap_03.png">
 <img src="./assets/diagram.png">
 
----
-
 ### Known Issues
 
--   Data is not persistent - user will lose the cart if they refresh the page.
+-   Cart data is not persistent - user will lose the cart if they refresh the page.
