@@ -9,6 +9,13 @@ import { CartContext } from "../../context/CartContext";
 import { getStockLevel } from "../../services/server";
 
 const Cart = () => {
+    // Refactoring:
+    // Check what is actually needed here and cut back on API calls where possible.
+    // each time an API call is made, there is the risk of not getting any data back
+
+    // TODO:
+    // create a cart collection to collect compare with database so cart data will remain consistent even if the user refreshes their page.
+    // You can find resources for this in the browniePoints lesson with Remi (ceres-forte/code-alongs/react/firestore)
     const { cart, setCart } = useContext(CartContext);
     const [total, setTotal] = useState(0);
 
