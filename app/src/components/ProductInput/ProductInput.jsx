@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useParams } from "react-router";
 
 // local
-import { getProductByID, getStockLevel } from "../../services/server";
+import { getProductByID } from "../../services/server";
 import { CartContext } from "../../context/CartContext";
 
 const ProductInput = ({ product }) => {
@@ -26,11 +26,6 @@ const ProductInput = ({ product }) => {
         const info = await getProductByID(id);
         const sizes = info.size;
         setSizeButton(sizes);
-    };
-
-    const getStock = async () => {
-        const awaitingStock = await getStockLevel(id);
-        setStock(awaitingStock);
     };
 
     const handleClick = (e) => {
@@ -96,7 +91,6 @@ const ProductInput = ({ product }) => {
 
     useEffect(() => {
         getSizeButton();
-        getStock();
     }, []);
 
     useEffect(() => {}, [wishlist]);
