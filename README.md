@@ -43,6 +43,7 @@ Notes:
 
 ### Screenshots
 
+<img src ="./assets/header.png" />
 <img src ="./assets/home-page.png" />
 <img src ="./assets/home-page-2.png" />
 <img src ="./assets/product-page.png" />

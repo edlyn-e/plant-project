@@ -12,29 +12,19 @@ import { getProductByID } from "../../services/server";
 import ProductInput from "../../components/ProductInput/ProductInput";
 
 const ProductPage = () => {
-    // Refactoring:
-    // reduce repetition where possible.
-    // i.e. check what you actually need.
-    // is 'getImages' needed? What does getItem retrieve from the database?
-
     const { id } = useParams();
     const [item, setItem] = useState([]);
     const [images, setImages] = useState([]);
 
     const getItem = async () => {
         const info = await getProductByID(id);
-        setItem(info);
-    };
-
-    const getImages = async () => {
-        const info = await getProductByID(id);
         const images = info.images;
+        setItem(info);
         setImages(images);
     };
 
     useEffect(() => {
         getItem();
-        getImages();
     }, []);
 
     return (
@@ -66,6 +56,7 @@ const ProductPage = () => {
                         <h3 className={styles.ProductPage__item_price}>
                             ${item.price}
                         </h3>
+                        {/* star ratings of the review would appear here */}
                         <p>
                             <FaRegStar /> <FaRegStar /> <FaRegStar />{" "}
                             <FaRegStar /> <FaRegStar /> <br />

@@ -1,7 +1,7 @@
 import firestore from "../firebase";
 import { products } from "./products";
 
-// CRUD PRODUCTS
+// CRUD: Create, Read, Update, Delete
 // CREATE
 export const createProduct = async (record) => {
     const collectionRef = firestore.collection("products");
@@ -58,7 +58,6 @@ export const getProductByID = async (id) => {
 };
 
 // GETTING STOCK FROM DATABASE BY ID
-
 export const getStockLevel = async (id) => {
     const info = await getProductByID(id);
     console.log("in server, this is info: ", info);
